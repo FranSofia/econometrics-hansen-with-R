@@ -38,3 +38,7 @@ Thumbs.db
 *.aux
 *.out
 *.toc
+
+# Archivos de instrucciones locales
+INSTRUCCIONES_GITHUB.md
+LEEME_PRIMERO.md
