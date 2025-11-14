@@ -11,7 +11,7 @@ Este libro contiene apuntes y resúmenes de los dos tomos de econometría de Bru
 
 ## Estructura
 
-El libro está organizado en dos partes principales que corresponden a los dos tomos originales, seguidas de los apéndices correspondientes.
+El libro está organizado en dos partes principales que corresponden a los dos tomos originales, seguidas de los apéndices correspondientes. Además, se ofrecen ejercicios aplicados a R. La idea es ir aprendiendo econometría desde el comienzo, a la par que R. 
 
 ## Recursos originales
 
