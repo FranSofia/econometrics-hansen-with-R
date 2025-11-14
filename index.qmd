@@ -1,0 +1,25 @@
+# Bienvenida {.unnumbered}
+
+Estas son mis notas personales basadas en los libros **Introduction to Econometrics** y **Econometrics** de Bruce E. Hansen. Es un apunte personal, donde busco no solo aprehender el contenido de los libros de manera sintética, sino que también entregar ejemplos aplicados del contenido a R. Cabe destaca que, por lo sintético de algunos capítulos, mucho de lo que escriba serán traducciones casi literales del texto, pero esto no es una traducción del libro. 
+
+## Sobre estas notas
+
+Este libro contiene apuntes y resúmenes de los dos tomos de econometría de Bruce E. Hansen:
+
+- **Introduction to Econometrics** (18 capítulos + apéndice)
+- **Econometrics** (29 capítulos + 2 apéndices)
+
+## Estructura
+
+El libro está organizado en dos partes principales que corresponden a los dos tomos originales, seguidas de los apéndices correspondientes.
+
+## Recursos originales
+
+Los libros originales de Bruce E. Hansen están disponibles en:
+
+- [Introduction to Econometrics](http://home.ustc.edu.cn/~matheming/Intro2Metrics.pdf)
+- [Econometrics](http://home.ustc.edu.cn/~matheming/Econometrics.pdf)
+
+## Nota
+
+Estas notas son un trabajo en progreso y están basadas en los textos originales de Hansen. Cualquier error u omisión es responsabilidad exclusiva de la autor de estas notas.

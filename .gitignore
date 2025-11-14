@@ -1,0 +1,40 @@
+# Quarto
+/.quarto/
+/_book/
+/_site/
+/_freeze/
+*.html
+*.pdf
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.log
+*.aux
+*.out
+*.toc

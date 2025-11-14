@@ -1,0 +1,151 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Econometrics"
+  subtitle: "Notas basadas en Hansen"
+  author: "Fran Sofía Núñez Rebolledo"
+  date: today
+  date-format: "D [de] MMMM [de] YYYY"
+  
+  # Configuración de la navegación
+  page-navigation: true
+  
+  # Búsqueda
+  search: 
+    location: sidebar
+    type: overlay
+  
+  # Estructura del libro
+  chapters:
+    - index.qmd
+    
+    - part: "Introduction to Econometrics"
+      chapters:
+        - chapters/intro-01.qmd
+        - chapters/intro-02.qmd
+        - chapters/intro-03.qmd
+        - chapters/intro-04.qmd
+        - chapters/intro-05.qmd
+        - chapters/intro-06.qmd
+        - chapters/intro-07.qmd
+        - chapters/intro-08.qmd
+        - chapters/intro-09.qmd
+        - chapters/intro-10.qmd
+        - chapters/intro-11.qmd
+        - chapters/intro-12.qmd
+        - chapters/intro-13.qmd
+        - chapters/intro-14.qmd
+        - chapters/intro-15.qmd
+        - chapters/intro-16.qmd
+        - chapters/intro-17.qmd
+        - chapters/intro-18.qmd
+    
+    - part: "Econometrics"
+      chapters:
+        - chapters/econ-01.qmd
+        - chapters/econ-02.qmd
+        - chapters/econ-03.qmd
+        - chapters/econ-04.qmd
+        - chapters/econ-05.qmd
+        - chapters/econ-06.qmd
+        - chapters/econ-07.qmd
+        - chapters/econ-08.qmd
+        - chapters/econ-09.qmd
+        - chapters/econ-10.qmd
+        - chapters/econ-11.qmd
+        - chapters/econ-12.qmd
+        - chapters/econ-13.qmd
+        - chapters/econ-14.qmd
+        - chapters/econ-15.qmd
+        - chapters/econ-16.qmd
+        - chapters/econ-17.qmd
+        - chapters/econ-18.qmd
+        - chapters/econ-19.qmd
+        - chapters/econ-20.qmd
+        - chapters/econ-21.qmd
+        - chapters/econ-22.qmd
+        - chapters/econ-23.qmd
+        - chapters/econ-24.qmd
+        - chapters/econ-25.qmd
+        - chapters/econ-26.qmd
+        - chapters/econ-27.qmd
+        - chapters/econ-28.qmd
+        - chapters/econ-29.qmd
+    
+    - part: "Apéndices"
+      chapters:
+        - appendix/intro-appendix.qmd
+        - appendix/econ-appendix-a.qmd
+        - appendix/econ-appendix-b.qmd
+        - appendix/referencias.qmd
+
+  # Opciones del sidebar
+  sidebar:
+    style: "docked"
+    background: light
+    collapse-level: 2
+    
+  # Configuración de la página
+  page-footer:
+    left: |
+      Econometrics - Notas basadas en Hansen
+    right: |
+      Construido con [Quarto](https://quarto.org/)
+    border: true
+
+  # Repositorio (actualiza con tu usuario/repo)
+  repo-url: https://github.com/tuusuario/econometrics-hansen
+  repo-actions: [edit, issue]
+
+# Configuración de formato HTML
+format:
+  html:
+    theme: 
+      light: [cosmo, styles/custom.scss]
+    toc: true
+    toc-depth: 3
+    toc-expand: 2
+    number-sections: true
+    number-depth: 3
+    code-link: true
+    code-copy: true
+    code-fold: false
+    code-tools: true
+    code-overflow: wrap
+    highlight-style: github
+    smooth-scroll: true
+    link-external-newwindow: true
+    link-external-icon: true
+    citations-hover: true
+    footnotes-hover: true
+    html-math-method: katex
+    
+# Opciones de ejecución de código
+execute:
+  freeze: auto
+  cache: false
+  warning: false
+  message: false
+  
+# Idioma
+lang: es
+  
+# Bibliografía
+bibliography: references.bib
+csl: styles/apa.csl
+
+# Opciones de crossref
+crossref:
+  fig-title: Figura
+  tbl-title: Tabla
+  eq-prefix: Ecuación
+  sec-prefix: Sección
+  fig-prefix: Figura
+  tbl-prefix: Tabla
+  thm-title: Teorema
+  lem-title: Lema
+  def-title: Definición
+  prp-title: Proposición
+  exm-title: Ejemplo
