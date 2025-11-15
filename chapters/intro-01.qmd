@@ -5,26 +5,67 @@ format: html
 
 ## Introducción
 
-La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica.
+La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica. Entonces, es inevitable arrancar por aquí si se quiere tener un dominio consciente y robusto sobre la econometría. 
 
-La probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Cuando decimos que algo es incierto queremos decir que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte de doctorado de tu universidad el próximo año? Por variabilidad queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes de doctorado fluctúa de un año a otro. Por aleatoriedad queremos decir que la variabilidad tiene algún tipo de patrón. Por ejemplo, el número de estudiantes de doctorado puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. La probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.
+En primer lugar, la probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Es decir, para representar científicamente algo que no sabemos exactamente cuál es su comportamiento (ni cuál será en el futuro). Así, cuando se dice que algo es *incierto* se dice que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte del pregrado de Sociología de alguna universidad? Por *variabilidad* queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes del pregrado de Sociología fluctúa de un año a otro, es porque *varía*, posee el atributo de la *variabilidad*. Finalmente, por *aleatoriedad* se entiende que la variabilidad del fenómeno a estudiar tiene algún tipo de *patrón*. Por ejemplo, el número de estudiantes de Sociología puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. Pero es muy improbable que lleguen 100 el próximo año. Con todo ello, la probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.
 
 ## Resultados (*Outcomes*) y Eventos
 
-Supón que tomas una moneda, la lanzas al aire y la dejas caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.
+Partamos con un ejemplo, supongamos que tomamos una moneda, la lanzamos al aire y la dejamos caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. Supongamos ahora que se registra el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. O supongamos que seleccionamos un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.
 
-Supón que registras el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.
+Para todo ello, usaremos los siguientes términos:
 
-Supón que seleccionas un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.
+  - Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es $H$ o $T$. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como $HT$ para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $\{1,2,3,4,5,6\}$.
 
-Usaremos los siguientes términos:
+  - El **espacio muestral** (*sample space*) $S$ es el **conjunto** de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = \{H, T\}$. Si se lanzan dos monedas, el espacio muestral es $S = \{HH, HT, TH, TT\}$.
 
-  - Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es H o T. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como HT para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $\{1,2,3,4,5,6\}$.
+  - Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = \{1,2\}$.
 
-  - El **espacio muestral** (*sample space*) $S$ es el conjunto de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = \{H, T\}$. Si se lanzan dos monedas, el espacio muestral es $S = \{HH, HT, TH, TT\}$.
+Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la @fig-figura-1.1. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.
 
-  - Un **evento** (*event*) $A$ es un subconjunto de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = \{1,2\}$.
+```{r}
+#| label: figura-1.1
+#| fig.cap: "Espacio muestral"
+#| fig.align: "center"
+par(mfrow = c(1,2), mar = c(1,1,1,1))
 
-Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la Figura 1.1(b).
+# --- (a) One Coin ---
+plot.new()
+plot.window(xlim = c(0, 10), ylim = c(0, 10))
 
-Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.
+# Dibujar el óvalo
+symbols(5, 5, circles = 4.5, inches = FALSE, add = TRUE, fg = "black")
+
+# Poner H y T
+text(4, 6, "H")
+text(6, 4, "T")
+
+title("(a) One Coin")
+
+# --- (b) Two Coins ---
+plot.new()
+plot.window(xlim = c(0, 10), ylim = c(0, 10))
+
+# Óvalo exterior
+symbols(5, 5, circles = 4.5, inches = FALSE, add = TRUE, fg = "black")
+
+# Óvalo interior (subconjunto)
+symbols(5, 5, circles = 2.2, inches = FALSE, add = TRUE, fg = "black")
+
+# Etiquetas
+text(5, 7, "TH")
+text(7, 6.6, "TT")
+text(5, 5.8, "HT")
+text(5, 4.2, "HH")
+
+title("(b) Two Coins")
+```
+
+
+
+
+
+
+
+
+

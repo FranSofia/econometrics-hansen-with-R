@@ -84,7 +84,7 @@ Las variables aleatorias y los vectores se escriben usando letras mayúsculas en
 
 
 
-## Greek Alphabet
+## Alfabeto Griego
 
 A continuación se presenta una tabla con los caracteres griegos utilizados comúnmente en economía y econometría, junto con sus nombres y sus equivalentes en teclado latino. El segundo carácter, cuando aparece, corresponde a la letra en mayúscula (excepto para $\varepsilon$, donde $\epsilon$ es un estilo alternativo).
 
