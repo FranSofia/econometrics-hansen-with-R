@@ -1,9 +1,8 @@
 ---
-format: html
-toc: false
- format:
-   html:
-     number-sections: false
+title: "Cuestiones previas a Introduction to Econometrics: Prefacio"
+format:
+  html:
+    toc: false   
 ---
 
 # Cuestiones previas a Introduction to Econometrics: Prefacio {.unnumbered}
