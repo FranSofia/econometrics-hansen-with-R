@@ -36,50 +36,50 @@ book:
         - chapters/intro-11.qmd
         - chapters/intro-12.qmd
         - chapters/intro-13.qmd
-        #- chapters/intro-14.qmd
-        #- chapters/intro-15.qmd
-        #- chapters/intro-16.qmd
-        #- chapters/intro-17.qmd
-        #- chapters/intro-18.qmd
+        - chapters/intro-14.qmd
+        - chapters/intro-15.qmd
+        - chapters/intro-16.qmd
+        - chapters/intro-17.qmd
+        - chapters/intro-18.qmd
     
     - part: "Econometrics"
       chapters:
         - chapters/econ-01.qmd
-        #- chapters/econ-02.qmd
-        #- chapters/econ-03.qmd
-        #- chapters/econ-04.qmd
-        #- chapters/econ-05.qmd
-        #- chapters/econ-06.qmd
-        #- chapters/econ-07.qmd
-        #- chapters/econ-08.qmd
-        #- chapters/econ-09.qmd
-        #- chapters/econ-10.qmd
-        #- chapters/econ-11.qmd
-        #- chapters/econ-12.qmd
-        #- chapters/econ-13.qmd
-        #- chapters/econ-14.qmd
-        #- chapters/econ-15.qmd
-        #- chapters/econ-16.qmd
-        #- chapters/econ-17.qmd
-        #- chapters/econ-18.qmd
-        #- chapters/econ-19.qmd
-        #- chapters/econ-20.qmd
-        #- chapters/econ-21.qmd
-        #- chapters/econ-22.qmd
-        #- chapters/econ-23.qmd
-        #- chapters/econ-24.qmd
-        #- chapters/econ-25.qmd
-        #- chapters/econ-26.qmd
-        #- chapters/econ-27.qmd
-        #- chapters/econ-28.qmd
-        #- chapters/econ-29.qmd
+        - chapters/econ-02.qmd
+        - chapters/econ-03.qmd
+        - chapters/econ-04.qmd
+        - chapters/econ-05.qmd
+        - chapters/econ-06.qmd
+        - chapters/econ-07.qmd
+        - chapters/econ-08.qmd
+        - chapters/econ-09.qmd
+        - chapters/econ-10.qmd
+        - chapters/econ-11.qmd
+        - chapters/econ-12.qmd
+        - chapters/econ-13.qmd
+        - chapters/econ-14.qmd
+        - chapters/econ-15.qmd
+        - chapters/econ-16.qmd
+        - chapters/econ-17.qmd
+        - chapters/econ-18.qmd
+        - chapters/econ-19.qmd
+        - chapters/econ-20.qmd
+        - chapters/econ-21.qmd
+        - chapters/econ-22.qmd
+        - chapters/econ-23.qmd
+        - chapters/econ-24.qmd
+        - chapters/econ-25.qmd
+        - chapters/econ-26.qmd
+        - chapters/econ-27.qmd
+        - chapters/econ-28.qmd
+        - chapters/econ-29.qmd
     
     - part: "Apéndices"
       chapters:
         - appendix/intro-appendix.qmd
-        #- appendix/econ-appendix-a.qmd
-        #- appendix/econ-appendix-b.qmd
-        #- appendix/referencias.qmd
+        - appendix/econ-appendix-a.qmd
+        - appendix/econ-appendix-b.qmd
+        - appendix/referencias.qmd
 
   # Opciones del sidebar
   sidebar:
@@ -96,7 +96,7 @@ book:
     border: true
 
   # Repositorio (actualiza con tu usuario/repo)
-  repo-url: https://github.com/tuusuario/econometrics-hansen
+  repo-url: https://github.com/FranSofia/econometrics-hansen-with-R
   repo-actions: [edit, issue]
 
 # Configuración de formato HTML
