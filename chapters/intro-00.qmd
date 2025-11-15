@@ -5,9 +5,6 @@ format:
     toc: false   
 ---
 
-# Cuestiones previas a Introduction to Econometrics: Prefacio {.unnumbered}
-
-
 En el Prefacio del Libro "*Introduction to Econometrics*" [@hansen2021intro], se menciona que el libro es el primero de la serie de dos volúmenes del material que se enseña comúnmente en un PhD de 1 año de Econometría. Luego, la secuencia es la siguiente: 
 
 1. *Introduction to Econometrics* (este volumen)

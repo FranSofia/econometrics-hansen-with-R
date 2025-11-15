@@ -65,7 +65,7 @@ Para describir las representaciones y operaciones con eventos, usaremos las sigu
 
 ::: {#def-events}
 
-## Definición 1.1 — Conjuntos de eventos
+## Conjuntos de eventos
 
 Sean $A$ y $B$ eventos.
 
@@ -90,7 +90,7 @@ Así, @hansen2021intro menciona que los eventos satisfacen las reglas de las ope
 
 ::: {#thm-partitioning}
 
-## Teorema 1.1 — Teorema de partición
+## Teorema de partición
 
 Si $\{B_1, B_2, \ldots\}$ es una partición de $S$, entonces para cualquier evento $A$ se cumple:
 
