@@ -21,10 +21,10 @@ Para todo ello, usaremos los siguientes términos:
 
   - Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = \{1,2\}$.
 
-Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la @figura-1-espacio-muestral. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.
+Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la @fig-1-espacio-muestral. Las operaciones con conjuntos son útiles para describir eventos. En R, podríamos representarlo así: 
 
 ```{r}
-#| label: figura-1-espacio-muestral
+#| label: fig-1-espacio-muestral
 #| fig.cap: "Espacio muestral"
 #| fig.align: "center"
 par(mfrow = c(1,2), mar = c(1,1,1,1))
@@ -61,7 +61,48 @@ text(5, 4.2, "HH")
 title("(b) Two Coins")
 ```
 
+Para describir las representaciones y operaciones con eventos, usaremos las siguientes definiciones: 
 
+::: {#def-events}
+
+## Definición 1.1 — Conjuntos de eventos
+
+Sean $A$ y $B$ eventos.
+
+1. $A$ es un **subconjunto** de $B$, escrito $A \subseteq B$, si cada elemento de $A$ es un elemento de $B$.
+
+2. El evento sin resultados $\varnothing = \{\}$ se llama **conjunto nulo** (*null*) o **conjunto vacío** (*empty set*).
+
+3. **La unión** $A \cup B$ es el conjunto de todos los resultados que están en $A$ o en $B$ (o en ambos).
+
+4. **La intersección** $A \cap B$ es el conjunto de elementos que están tanto en $A$ como en $B$.
+
+5. **El complemento** $A^{c}$ de $A$ es el conjunto de todos los resultados en $S$ que no están en $A$.
+
+6. **Los eventos $A$ y $B$ son disjuntos** si no tienen resultados en común. Esto es,  
+   $$A \cap B = \varnothing.$$
+
+7. Los eventos $A_1, A_2, \ldots$ forman **una partición** de $S$ si son mutuamente disjuntos y su unión es $S$.
+
+:::
+
+Así, @hansen2021intro menciona que los eventos satisfacen las reglas de las operaciones con conjuntos, incluidas las leyes conmutativa, asociativa y distributiva. Para lo cual, el siguiente teorema es útil.
+
+::: {#thm-partitioning}
+
+## Teorema 1.1 — Teorema de partición
+
+Si $\{B_1, B_2, \ldots\}$ es una partición de $S$, entonces para cualquier evento $A$ se cumple:
+
+$$
+A = \bigcup_{i=1}^{\infty} (A \cap B_i).
+$$
+
+Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^[Una demostración se proporciona en la Sección 1.15.].
+
+
+
+:::
 
 
 

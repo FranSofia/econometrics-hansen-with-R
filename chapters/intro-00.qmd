@@ -1,7 +1,13 @@
 ---
-title: "Cuestiones previas a Introduction to Econometrics: Prefacio"
 format: html
+toc: false
+ format:
+   html:
+     number-sections: false
 ---
+
+# Cuestiones previas a Introduction to Econometrics: Prefacio {.unnumbered}
+
 
 En el Prefacio del Libro "*Introduction to Econometrics*" [@hansen2021intro], se menciona que el libro es el primero de la serie de dos volúmenes del material que se enseña comúnmente en un PhD de 1 año de Econometría. Luego, la secuencia es la siguiente: 
 
@@ -10,11 +16,11 @@ En el Prefacio del Libro "*Introduction to Econometrics*" [@hansen2021intro], se
 
 Yo seguiré el mismo orden. Los libros están escritos como una serie integrada, pero se pueden usar libremente y de manera independiente para cursos de distinta naturaleza. En *Introduction to Econometrics* [@hansen2021intro], se tratará sobre todo de estadística matemática de nivel intermedio. Para ello, se utiliza herramientas del cálculo, pero no la *measure theory*. Se señala que el nivel de detalle y rigor es similar al de Casella y Berger (2002) y Hogg y Craig (1995). El material se explica mediante ejemplos al nivel de Hogg y Tanis (1997), dirigidos a estudiantes de economía. El objetivo es que sea accesible para estudiantes con diferentes antecedentes, pero sin renunciar al rigor matemático.
 
-# Sobre el autor
+# Sobre el autor  {.unnumbered}
 
 Bruce E. Hansen es titular de la cátedra distinguida Mary Claire Aschenbrenner Phipps (*Mary Claire Aschenbrenner Phipps Distinguished Chair of Economics*) de Economía en la Universidad de Wisconsin-Madison. Bruce es originario de Los Ángeles, California, y tiene una licenciatura en Economía por el Occidental College (1984) y un PhD en Economía por la Universidad de Yale (1989). Anteriormente impartió clases en la Universidad de Rochester y en el Boston College. Bruce es miembro de la Econometric Society, la *Journal of Econometrics* y la International Association of Applied Econometrics. Ha sido coeditor de *Econometric Theory* y editor asociado de *Econometrica*. Ha publicado 62 artículos en revistas especializadas que han recibido más de 36.000 citas al momento de publicarse esta edición [@hansen2021intro]. 
 
-# Preparación matemática
+# Preparación matemática {.unnumbered}
 
 Hensen [-@hansen2021intro], menciona que los estudiantes deberían estar familiarizados con cálculo integral, diferencial y multivariable, así como con álgebra lineal matricial. Este es el material típicamente enseñado en una secuencia de cuatro cursos de matemáticas de pregrado en una universidad estadounidense. No se asume experiencia previa en probabilidad, estadística o econometría, aunque sería útil. Es altamente recomendable, pero no necesario, haber estudiado análisis matemático y/o un curso de matemáticas orientado a la demostración (“*prove-it*”).
 
@@ -23,7 +29,7 @@ El lenguaje de la probabilidad y la estadística es la matemática. Para compren
 Por cierto, se menciona que la razón por la cual se recomienda haber estudiado análisis matemático no es que vayamos a utilizar esos resultados. La razón es que el método de pensamiento y las estructuras de demostración son similares. Comenzamos con los axiomas de probabilidad y construimos la estructura de la teoría de probabilidad desde esos axiomas. Una vez construida la teoría de probabilidad, construimos la teoría estadística sobre esa base. Una introducción clásica al análisis matemático es Rudin (1976). Para quienes deseen más, se recomienda Rudin (1987). El apéndice del libro contiene un breve resumen de resultados matemáticos importantes y se incluye como referencia.
 
 
-## Notación
+## Notación  {.unnumbered}
 
 Los números reales (elementos de la recta real $\mathbb{R}$, también llamados *escalares*) se escriben usando letras minúsculas en cursiva, como $x$. Los vectores (elementos de $\mathbb{R}^k$) se escriben típicamente usando letras minúsculas en cursiva como $x$, y a veces utilizando letras minúsculas en negrita cursiva como $\mathbf{x}$ (para expresiones de álgebra matricial). Por ejemplo, escribimos
 
@@ -57,7 +63,7 @@ $$
 
 Las variables aleatorias y los vectores se escriben usando letras mayúsculas en cursiva, como $X$. Típicamente se usan letras griegas como $\beta$, $\theta$ y $\sigma^2$ para denotar parámetros desconocidos de un modelo de probabilidad. Los estimadores típicamente se denotan añadiendo un “sombrero” $\hat{\ }$, una tilde “$\tilde{\ }$”, o una barra “$\bar{\ }$” sobre el símbolo correspondiente; por ejemplo, $\hat{\beta}$ y $\tilde{\beta}$ son estimadores de $\beta$.
 
-## Símbolos comunes a utilizar
+## Símbolos comunes a utilizar  {.unnumbered}
 
 
 | Símbolo | Significado |
