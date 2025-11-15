@@ -21,7 +21,7 @@ Para todo ello, usaremos los siguientes términos:
 
   - Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = \{1,2\}$.
 
-Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la @fig-figura-1.1. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.
+Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la @figura-1.1. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.
 
 ```{r}
 #| label: figura-1.1
