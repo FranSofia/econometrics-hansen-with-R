@@ -23,6 +23,7 @@ book:
     
     - part: "Introduction to Econometrics"
       chapters:
+        - chapters/intro-00.qmd
         - chapters/intro-01.qmd
         - chapters/intro-02.qmd
         - chapters/intro-03.qmd

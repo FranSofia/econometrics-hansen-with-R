@@ -1,5 +1,30 @@
 ---
-title: "Basic Probability Theory"
+title: "Teoría básica de la probabilidad (*Basic Probability Theory*)"
 format: html
 ---
 
+## Introducción
+
+La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica.
+
+La probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Cuando decimos que algo es incierto queremos decir que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte de doctorado de tu universidad el próximo año? Por variabilidad queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes de doctorado fluctúa de un año a otro. Por aleatoriedad queremos decir que la variabilidad tiene algún tipo de patrón. Por ejemplo, el número de estudiantes de doctorado puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. La probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.
+
+## Resultados (*Outcomes*) y Eventos
+
+Supón que tomas una moneda, la lanzas al aire y la dejas caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.
+
+Supón que registras el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.
+
+Supón que seleccionas un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.
+
+Usaremos los siguientes términos:
+
+  - Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es H o T. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como HT para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $\{1,2,3,4,5,6\}$.
+
+  - El **espacio muestral** (*sample space*) $S$ es el conjunto de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = \{H, T\}$. Si se lanzan dos monedas, el espacio muestral es $S = \{HH, HT, TH, TT\}$.
+
+  - Un **evento** (*event*) $A$ es un subconjunto de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = \{1,2\}$.
+
+Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $\{HH, HT\}$ se muestra con la elipse en la Figura 1.1(b).
+
+Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.
