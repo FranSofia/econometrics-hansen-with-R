@@ -575,22 +575,61 @@ window.Quarto = {
 
 <section id="introducción" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">2.1</span> Introducción</h2>
-<p>La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica.</p>
-<p>La probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Cuando decimos que algo es incierto queremos decir que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte de doctorado de tu universidad el próximo año? Por variabilidad queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes de doctorado fluctúa de un año a otro. Por aleatoriedad queremos decir que la variabilidad tiene algún tipo de patrón. Por ejemplo, el número de estudiantes de doctorado puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. La probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.</p>
+<p>La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica. Entonces, es inevitable arrancar por aquí si se quiere tener un dominio consciente y robusto sobre la econometría.</p>
+<p>En primer lugar, la probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Es decir, para representar científicamente algo que no sabemos exactamente cuál es su comportamiento (ni cuál será en el futuro). Así, cuando se dice que algo es <em>incierto</em> se dice que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte del pregrado de Sociología de alguna universidad? Por <em>variabilidad</em> queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes del pregrado de Sociología fluctúa de un año a otro, es porque <em>varía</em>, posee el atributo de la <em>variabilidad</em>. Finalmente, por <em>aleatoriedad</em> se entiende que la variabilidad del fenómeno a estudiar tiene algún tipo de <em>patrón</em>. Por ejemplo, el número de estudiantes de Sociología puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. Pero es muy improbable que lleguen 100 el próximo año. Con todo ello, la probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.</p>
 </section>
 <section id="resultados-outcomes-y-eventos" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="resultados-outcomes-y-eventos"><span class="header-section-number">2.2</span> Resultados (<em>Outcomes</em>) y Eventos</h2>
-<p>Supón que tomas una moneda, la lanzas al aire y la dejas caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.</p>
-<p>Supón que registras el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.</p>
-<p>Supón que seleccionas un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.</p>
-<p>Usaremos los siguientes términos:</p>
+<p>Partamos con un ejemplo, supongamos que tomamos una moneda, la lanzamos al aire y la dejamos caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. Supongamos ahora que se registra el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. O supongamos que seleccionamos un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.</p>
+<p>Para todo ello, usaremos los siguientes términos:</p>
 <ul>
-<li><p>Un <strong>resultado</strong> (<em>outcome</em>) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es H o T. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como HT para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son <span class="math inline">\{1,2,3,4,5,6\}</span>.</p></li>
-<li><p>El <strong>espacio muestral</strong> (<em>sample space</em>) <span class="math inline">S</span> es el conjunto de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es <span class="math inline">S = \{H, T\}</span>. Si se lanzan dos monedas, el espacio muestral es <span class="math inline">S = \{HH, HT, TH, TT\}</span>.</p></li>
-<li><p>Un <strong>evento</strong> (<em>event</em>) <span class="math inline">A</span> es un subconjunto de resultados en <span class="math inline">S</span>. Un ejemplo proveniente del lanzamiento de un dado es <span class="math inline">A = \{1,2\}</span>.</p></li>
+<li><p>Un <strong>resultado</strong> (<em>outcome</em>) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es <span class="math inline">H</span> o <span class="math inline">T</span>. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como <span class="math inline">HT</span> para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son <span class="math inline">\{1,2,3,4,5,6\}</span>.</p></li>
+<li><p>El <strong>espacio muestral</strong> (<em>sample space</em>) <span class="math inline">S</span> es el <strong>conjunto</strong> de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es <span class="math inline">S = \{H, T\}</span>. Si se lanzan dos monedas, el espacio muestral es <span class="math inline">S = \{HH, HT, TH, TT\}</span>.</p></li>
+<li><p>Un <strong>evento</strong> (<em>event</em>) <span class="math inline">A</span> es un <strong>subconjunto</strong> de resultados en <span class="math inline">S</span>. Un ejemplo proveniente del lanzamiento de un dado es <span class="math inline">A = \{1,2\}</span>.</p></li>
 </ul>
-<p>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento <span class="math inline">\{HH, HT\}</span> se muestra con la elipse en la Figura 1.1(b).</p>
-<p>Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.</p>
+<p>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento <span class="math inline">\{HH, HT\}</span> se muestra con la elipse en la <span class="quarto-unresolved-ref">?fig-figura-1.1</span>. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (a) One Coin ---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujar el óvalo</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Poner H y T</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="st">"H"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="st">"T"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(a) One Coin"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (b) Two Coins ---</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo exterior</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo interior (subconjunto)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">2.2</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="st">"TH"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">7</span>, <span class="fl">6.6</span>, <span class="st">"TT"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">5.8</span>, <span class="st">"HT"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">4.2</span>, <span class="st">"HH"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(b) Two Coins"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="intro-01_files/figure-html/figura-1.1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Espacio muestral</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -1068,36 +1107,77 @@ window.Quarto = {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Teoría básica de la probabilidad (*Basic Probability Theory*)"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica.</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>La probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Cuando decimos que algo es incierto queremos decir que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte de doctorado de tu universidad el próximo año? Por variabilidad queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes de doctorado fluctúa de un año a otro. Por aleatoriedad queremos decir que la variabilidad tiene algún tipo de patrón. Por ejemplo, el número de estudiantes de doctorado puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. La probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resultados (*Outcomes*) y Eventos</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Supón que tomas una moneda, la lanzas al aire y la dejas caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Supón que registras el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Supón que seleccionas un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Usaremos los siguientes términos:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es H o T. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como HT para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $<span class="sc">\{</span>1,2,3,4,5,6<span class="sc">\}</span>$.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **espacio muestral** (*sample space*) $S$ es el conjunto de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = <span class="sc">\{</span>H, T<span class="sc">\}</span>$. Si se lanzan dos monedas, el espacio muestral es $S = <span class="sc">\{</span>HH, HT, TH, TT<span class="sc">\}</span>$.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **evento** (*event*) $A$ es un subconjunto de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = <span class="sc">\{</span>1,2<span class="sc">\}</span>$.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $<span class="sc">\{</span>HH, HT<span class="sc">\}</span>$ se muestra con la elipse en la Figura 1.1(b).</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Teoría básica de la probabilidad (*Basic Probability Theory*)"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica. Entonces, es inevitable arrancar por aquí si se quiere tener un dominio consciente y robusto sobre la econometría. </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>En primer lugar, la probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Es decir, para representar científicamente algo que no sabemos exactamente cuál es su comportamiento (ni cuál será en el futuro). Así, cuando se dice que algo es *incierto* se dice que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte del pregrado de Sociología de alguna universidad? Por *variabilidad* queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes del pregrado de Sociología fluctúa de un año a otro, es porque *varía*, posee el atributo de la *variabilidad*. Finalmente, por *aleatoriedad* se entiende que la variabilidad del fenómeno a estudiar tiene algún tipo de *patrón*. Por ejemplo, el número de estudiantes de Sociología puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. Pero es muy improbable que lleguen 100 el próximo año. Con todo ello, la probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resultados (*Outcomes*) y Eventos</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Partamos con un ejemplo, supongamos que tomamos una moneda, la lanzamos al aire y la dejamos caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. Supongamos ahora que se registra el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. O supongamos que seleccionamos un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Para todo ello, usaremos los siguientes términos:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es $H$ o $T$. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como $HT$ para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $<span class="sc">\{</span>1,2,3,4,5,6<span class="sc">\}</span>$.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **espacio muestral** (*sample space*) $S$ es el **conjunto** de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = <span class="sc">\{</span>H, T<span class="sc">\}</span>$. Si se lanzan dos monedas, el espacio muestral es $S = <span class="sc">\{</span>HH, HT, TH, TT<span class="sc">\}</span>$.</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = <span class="sc">\{</span>1,2<span class="sc">\}</span>$.</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $<span class="sc">\{</span>HH, HT<span class="sc">\}</span>$ se muestra con la elipse en la @fig-figura-1.1. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: figura-1.1</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: "Espacio muestral"</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.align: "center"</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (a) One Coin ---</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujar el óvalo</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Poner H y T</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="st">"H"</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="st">"T"</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(a) One Coin"</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (b) Two Coins ---</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo exterior</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo interior (subconjunto)</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">2.2</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="st">"TH"</span>)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">7</span>, <span class="fl">6.6</span>, <span class="st">"TT"</span>)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">5.8</span>, <span class="st">"HT"</span>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">4.2</span>, <span class="st">"HH"</span>)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(b) Two Coins"</span>)</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+</code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
