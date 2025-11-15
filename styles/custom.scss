@@ -422,3 +422,20 @@ p code, li code {
     color: white;
   }
 }
+
+/*----- Estilo personalizado para captions de figuras -----*/
+
+.figure > figcaption,
+div.quarto-figure > figure > figcaption {
+  font-size: 1.05rem !important;     /* más formal */
+  font-family: $font-family-serif;   /* coincide con el cuerpo del libro */
+  color: $body-color !important;     /* más oscuro, más académico */
+  line-height: 1.4;
+  margin-top: 0.5rem;
+
+  /* Alinear a la derecha */
+  text-align: right !important;
+
+  /* Opción estética opcional: sangrado */
+  padding-right: 0.5rem;
+}
