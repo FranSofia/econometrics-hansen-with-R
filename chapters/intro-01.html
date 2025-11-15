@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -587,7 +607,7 @@ window.Quarto = {
 <li><p>El <strong>espacio muestral</strong> (<em>sample space</em>) <span class="math inline">S</span> es el <strong>conjunto</strong> de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es <span class="math inline">S = \{H, T\}</span>. Si se lanzan dos monedas, el espacio muestral es <span class="math inline">S = \{HH, HT, TH, TT\}</span>.</p></li>
 <li><p>Un <strong>evento</strong> (<em>event</em>) <span class="math inline">A</span> es un <strong>subconjunto</strong> de resultados en <span class="math inline">S</span>. Un ejemplo proveniente del lanzamiento de un dado es <span class="math inline">A = \{1,2\}</span>.</p></li>
 </ul>
-<p>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento <span class="math inline">\{HH, HT\}</span> se muestra con la elipse en la <span class="citation" data-cites="figura-1-espacio-muestral">(<a href="../appendix/referencias.html#ref-figura-1-espacio-muestral" role="doc-biblioref"><strong>figura-1-espacio-muestral?</strong></a>)</span>. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.</p>
+<p>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento <span class="math inline">\{HH, HT\}</span> se muestra con la elipse en la <a href="#fig-1-espacio-muestral" class="quarto-xref">Figura&nbsp;<span>2.1</span></a>. Las operaciones con conjuntos son útiles para describir eventos. En R, podríamos representarlo así:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -622,18 +642,55 @@ window.Quarto = {
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(b) Two Coins"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="intro-01_files/figure-html/figura-1-espacio-muestral-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Espacio muestral</figcaption>
+<div id="fig-1-espacio-muestral" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-espacio-muestral-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="intro-01_files/figure-html/fig-1-espacio-muestral-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-espacio-muestral-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Espacio muestral
+</figcaption>
 </figure>
 </div>
 </div>
+</div>
+<p>Para describir las representaciones y operaciones con eventos, usaremos las siguientes definiciones:</p>
+<div id="def-events" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.1 (Definición 1.1 — Conjuntos de eventos)</strong></span> Sean <span class="math inline">A</span> y <span class="math inline">B</span> eventos.</p>
+<ol type="1">
+<li><p><span class="math inline">A</span> es un <strong>subconjunto</strong> de <span class="math inline">B</span>, escrito <span class="math inline">A \subseteq B</span>, si cada elemento de <span class="math inline">A</span> es un elemento de <span class="math inline">B</span>.</p></li>
+<li><p>El evento sin resultados <span class="math inline">\varnothing = \{\}</span> se llama <strong>conjunto nulo</strong> (<em>null</em>) o <strong>conjunto vacío</strong> (<em>empty set</em>).</p></li>
+<li><p><strong>La unión</strong> <span class="math inline">A \cup B</span> es el conjunto de todos los resultados que están en <span class="math inline">A</span> o en <span class="math inline">B</span> (o en ambos).</p></li>
+<li><p><strong>La intersección</strong> <span class="math inline">A \cap B</span> es el conjunto de elementos que están tanto en <span class="math inline">A</span> como en <span class="math inline">B</span>.</p></li>
+<li><p><strong>El complemento</strong> <span class="math inline">A^{c}</span> de <span class="math inline">A</span> es el conjunto de todos los resultados en <span class="math inline">S</span> que no están en <span class="math inline">A</span>.</p></li>
+<li><p><strong>Los eventos <span class="math inline">A</span> y <span class="math inline">B</span> son disjuntos</strong> si no tienen resultados en común. Esto es,<br>
+<span class="math display">A \cap B = \varnothing.</span></p></li>
+<li><p>Los eventos <span class="math inline">A_1, A_2, \ldots</span> forman <strong>una partición</strong> de <span class="math inline">S</span> si son mutuamente disjuntos y su unión es <span class="math inline">S</span>.</p></li>
+</ol>
+</div>
+<p>Así, <span class="citation" data-cites="hansen2021intro">Hansen (<a href="../appendix/referencias.html#ref-hansen2021intro" role="doc-biblioref">2021</a>)</span> menciona que los eventos satisfacen las reglas de las operaciones con conjuntos, incluidas las leyes conmutativa, asociativa y distributiva. Para lo cual, el siguiente teorema es útil.</p>
+<div id="thm-partitioning" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.1 (Teorema 1.1 — Teorema de partición)</strong></span> Si <span class="math inline">\{B_1, B_2, \ldots\}</span> es una partición de <span class="math inline">S</span>, entonces para cualquier evento <span class="math inline">A</span> se cumple:</p>
+<p><span class="math display">
+A = \bigcup_{i=1}^{\infty} (A \cap B_i).
+</span></p>
+<p>Los conjuntos <span class="math inline">(A \cap B_i)</span> son mutuamente disjuntos<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 </div>
 
 
 <!-- -->
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-hansen2021intro" class="csl-entry" role="listitem">
+Hansen, B. E. (2021). <em>Introduction to Econometrics</em>. University of Wisconsin.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Una demostración se proporciona en la Sección 1.15.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1130,10 +1187,10 @@ window.Quarto = {
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = <span class="sc">\{</span>1,2<span class="sc">\}</span>$.</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $<span class="sc">\{</span>HH, HT<span class="sc">\}</span>$ se muestra con la elipse en la @figura-1-espacio-muestral. Las operaciones con conjuntos son útiles para describir eventos. Usaremos los siguientes conceptos.</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $<span class="sc">\{</span>HH, HT<span class="sc">\}</span>$ se muestra con la elipse en la @fig-1-espacio-muestral. Las operaciones con conjuntos son útiles para describir eventos. En R, podríamos representarlo así: </span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: figura-1-espacio-muestral</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-1-espacio-muestral</span></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: "Espacio muestral"</span></span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.align: "center"</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
@@ -1170,13 +1227,54 @@ window.Quarto = {
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(b) Two Coins"</span>)</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>Para describir las representaciones y operaciones con eventos, usaremos las siguientes definiciones: </span>
 <span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>::: {#def-events}</span>
 <span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Definición 1.1 — Conjuntos de eventos</span></span>
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>Sean $A$ y $B$ eventos.</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$A$ es un **subconjunto** de $B$, escrito $A \subseteq B$, si cada elemento de $A$ es un elemento de $B$.</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>El evento sin resultados $\varnothing = <span class="sc">\{\}</span>$ se llama **conjunto nulo** (*null*) o **conjunto vacío** (*empty set*).</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**La unión** $A \cup B$ es el conjunto de todos los resultados que están en $A$ o en $B$ (o en ambos).</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**La intersección** $A \cap B$ es el conjunto de elementos que están tanto en $A$ como en $B$.</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**El complemento** $A^{c}$ de $A$ es el conjunto de todos los resultados en $S$ que no están en $A$.</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Los eventos $A$ y $B$ son disjuntos** si no tienen resultados en común. Esto es,  </span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>   $$A \cap B = \varnothing.$$</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Los eventos $A_1, A_2, \ldots$ forman **una partición** de $S$ si son mutuamente disjuntos y su unión es $S$.</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>Así, @hansen2021intro menciona que los eventos satisfacen las reglas de las operaciones con conjuntos, incluidas las leyes conmutativa, asociativa y distributiva. Para lo cual, el siguiente teorema es útil.</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>::: {#thm-partitioning}</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Teorema 1.1 — Teorema de partición</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>Si $<span class="sc">\{</span>B_1, B_2, \ldots<span class="sc">\}</span>$ es una partición de $S$, entonces para cualquier evento $A$ se cumple:</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>A = \bigcup_{i=1}^{\infty} (A \cap B_i).</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^<span class="co">[</span><span class="ot">Una demostración se proporciona en la Sección 1.15.</span><span class="co">]</span>.</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
