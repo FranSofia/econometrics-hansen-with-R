@@ -11,7 +11,7 @@ Este repositorio contiene notas y resúmenes de:
 
 ## 🌐 Ver el libro
 
-El libro está publicado en: **[https://tuusuario.github.io/econometrics-hansen/](https://tuusuario.github.io/econometrics-hansen/)**
+El libro está publicado en: **[https://fransofia.github.io/econometrics-hansen-with-R/](https://fransofia.github.io/econometrics-hansen-with-R/)**
 
 ## 🛠️ Construido con
 
