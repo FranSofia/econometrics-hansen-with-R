@@ -24,16 +24,56 @@ jobs:
         with:
           r-version: 'release'
 
-      # 2) Instalar paquetes de R que necesitas
-      #   Agrega aquí otros paquetes que uses en el libro (tidyverse, etc.)
+      # 2) Instalar paquetes de R necesarios
       - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
             any::knitr
             any::rmarkdown
+      
+            # Tidyverse y manipulación
             any::tidyverse
+            any::data.table
+            any::janitor
+            any::lubridate
+      
+            # Tablas y reporte
+            any::modelsummary
+            any::gt
+            any::kableExtra
+            any::broom
+      
+            # Econometría clásica
+            any::sandwich
+            any::lmtest
+            any::AER
+            any::fixest
+            any::clubSandwich
+            any::estimatr
+      
+            # Panel data
+            any::plm
+      
+            # Series de tiempo
             any::tsibble
+            any::tsibbledata
+            any::fable
+            any::fabletools
+            any::forecast
+            any::vars
+            any::urca
+            any::tseries
+      
+            # Causalidad / microeconometría
+            any::MatchIt
+            any::marginaleffects
+            any::pscl
+            any::survival
+      
+            # Datasets útiles
+            any::wooldridge
+            any::Ecdat
 
 
       # 3) Instalar Quarto
