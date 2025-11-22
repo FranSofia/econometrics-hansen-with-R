@@ -98,11 +98,89 @@ $$
 A = \bigcup_{i=1}^{\infty} (A \cap B_i).
 $$
 
-Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^[Una demostración se proporciona en la Sección 1.15.].
+Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^[Una demostración se proporciona en la Sección 2.15.].
 
 
 
 :::
+
+
+
+## Función de probabilidad
+
+::: {#def-probability-func}
+
+## Función de probabilidad
+
+Una función $\mathbb{P}$ que asigna un valor numérico a los eventosse llama **función de probabilidad** si satisface los siguientes **Axiomas de la Probabilidad**:
+
+1. $\mathbb{P}[A] \ge 0$.
+
+2. $\mathbb{P}[S] = 1$.
+
+3. Si $A_1, A_2, \ldots$ son disjuntos, entonces  
+   $$
+   \mathbb{P}\!\left[ \bigcup_{j=1}^{\infty} A_j \right]
+   = \sum_{j=1}^{\infty} \mathbb{P}[A_j].
+   $$
+
+Hansen, utiliza la notación $\mathbb{P}[A]$ o para indicar la probabilidad de un evento $A$. Otra notación común incluye $P(A)$ y $\Pr(A)$ y las usaremos también.
+
+:::
+
+
+Desglosemos la definición. La frase “una función $\mathbb{P}$ que asigna un valor numérico a los eventos” significa que $\mathbb{P}$ es una función cuyo dominio es el conjunto de eventos y cuyo codominio es la recta real. Por lo tanto, las probabilidades son números. Por lo tanto, ese *outcome*, que es un número, es el *valor* de la probabilidad calculada. Consideremos, además, los Axiomas en cuestión. 
+
+  - El **primer Axioma** establece que las probabilidades son no negativas.
+
+  - El **segundo Axioma** es esencialmente una normalización: la probabilidad de que “algo ocurra” es uno.
+  
+  - El **tercer Axioma** impone una estructura considerable. Establece que las probabilidades son aditivas en eventos disjuntos. Es decir, si $A$ y $B$ son disjuntos entonces:
+  
+  $$
+  \mathbb{P}[A \cup B] = \mathbb{P}[A] + \mathbb{P}[B].
+  $$
+
+Por ejmplo, si tomamos el lanzamiento de un dado, con 6 caras y por tanto 6 resultados posibles, tal que $\{1, 2, 3, 4, 5, 6\}$. Entonces, si los *outcomes* son mutuamente disjuntos, siguiendo el tercer axioma, se tendría que, e.g.,  $\Pr[1 \text{ o } 2] = \Pr(1) + \Pr(2)$. Que, como podríamos intuir sabiendo la probabilidad de cada resultados de un dado, es $\frac{1}{6}+\frac{1}{6}$. Es decir, $\frac{1}{3}=0.\bar{3}$. Simulemos esto en R, lanzando un dado, por ejemplo, 10.000 veces. Debería darnos más o menos 0,3 periodico^[Y si fuera un número cada vez mayor sería cada vez más cercano el valor a 0,33333... Luego veremos por qué]. Supondremos además de que es un dado justo y que tiene reemplazo: 
+
+```{r}
+#| label: simulacion-dado-justo
+# Simular 10000 lanzamientos de un dado justo
+x <- sample(1:6, size = 10000, replace = TRUE)
+
+# Estimar P(1) + P(2)
+p1 <- mean(x == 1)
+p2 <- mean(x == 2)
+p1 + p2
+
+
+```
+
+
+Ahora bien, cuando se utiliza el tercer axioma es importante tener cuidado de aplicarlo únicamente a eventos disjuntos. Consideremos, e.g., el lanzamiento de un par de dados. Sea $A$ el evento “1 en el primer lanzamiento” y $B$ el evento “1 en el segundo lanzamiento”. Es tentador escribir  
+$$
+\mathbb{P}[\text{“1 en alguno de los dos lanzamientos”}] = \mathbb{P}[A \cup B] = \mathbb{P}[A] + \mathbb{P}[B],
+$$
+pero la segunda igualdad es incorrecta porque $A$ y $B$ no son disjuntos. El resultado “1 en ambos lanzamientos” es un elemento tanto de $A$ como de $B$.
+
+Por otro lado, cualquier función $\mathbb{P}$ que satisfaga los axiomas es una función de probabilidad válida. Consideremos de nuevo el ejemplo del lanzamiento de una moneda. Una función de probabilidad válida fija $\mathbb{P}[H] = 0.5$ y $\mathbb{P}[T] = 0.5$. (Esto se llama típicamente una **moneda equilibrada u honesta** (*fair coin*)). Una segunda función de probabilidad válida fija $\mathbb{P}[H] = 0.6$ y $\mathbb{P}[T] = 0.4$. Sin embargo, una función que fija $\mathbb{P}[H] = -0.6$ no es válida (viola el primer axioma, pues es negativa), y una función que fija $\mathbb{P}[H] = 0.6$ y $\mathbb{P}[T] = 0.6$ no es válida (viola el segundo axioma, ya que $0.6+0.6>1$).
+
+Con todo, aunque la definición establece que una función de probabilidad debe satisfacer ciertas reglas, no describe el **significado** de la probabilidad. La razón es que existen múltiples interpretaciones. Una visión es que las probabilidades son la frecuencia relativa de los resultados en un experimento controlado. La probabilidad de que el mercado bursátil aumente es la frecuencia de aumentos. La probabilidad de que la duración del desempleo exceda un mes es la frecuencia de duraciones de desempleo que exceden un mes. La probabilidad de que un jugador de baloncesto enceste un tiro libre es la frecuencia con la cual el jugador encesta tiros libres. La probabilidad de que ocurra una recesión es la frecuencia relativa de recesiones. Estos ejemplos son, justamente, interpretacionees frecuentistas (relativa en este caso) de la probabilidad.
+
+En algunos ejemplos esto es conceptualmente claro, ya que el experimento se repite o tiene múltiples ocurrencias. En otros casos una situación ocurre exactamente una vez y nunca se repetirá. Al escribir este párrafo, preguntas de incertidumbre de interés general incluyen “¿Saldrá el Reino Unido de la Unión Europea?” y “¿El calentamiento global excederá los 2 grados?”. En estos casos es difícil interpretar la probabilidad como una frecuencia relativa porque el resultado solo puede ocurrir una vez. La interpretación puede rescatarse considerando la “frecuencia relativa” de manera abstracta imaginando muchos universos alternativos que comienzan desde las mismas condiciones iniciales pero evolucionan aleatoriamente.
+
+Otra visión es que la probabilidad es subjetiva. Esta visión sostiene que las probabilidades pueden interpretarse como grados de creencia. Si digo “La probabilidad de que llueva mañana es 80%” quiero decir que esta es mi evaluación subjetiva de la *verosimilitud* basada en la información disponible para mí. Esto puede parecer demasiado amplio ya que permitiría creencias arbitrarias, pero la interpretación subjetiva requiere que la probabilidad subjetiva siga los axiomas y reglas de la probabilidad, y que se actualicen las creencias conforme se revela nueva información^[Es más, la interpretación subjetiva de la probabilidad está en los fundamentos de la teoría bayesiana de la probabilidad]. 
+
+En cualquier caso, lo que tienen en común ambas definiciones es que la función de probabilidad sigue los mismos axiomas; de lo contrario, no debería utilizarse la etiqueta «probabilidad».
+
+
+
+
+
+
+
+
+
 
 
 
