@@ -568,6 +568,7 @@ window.Quarto = {
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">2.1</span> Introducción</a></li>
   <li><a href="#resultados-outcomes-y-eventos" id="toc-resultados-outcomes-y-eventos" class="nav-link" data-scroll-target="#resultados-outcomes-y-eventos"><span class="header-section-number">2.2</span> Resultados (<em>Outcomes</em>) y Eventos</a></li>
+  <li><a href="#función-de-probabilidad" id="toc-función-de-probabilidad" class="nav-link" data-scroll-target="#función-de-probabilidad"><span class="header-section-number">2.3</span> Función de probabilidad</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/FranSofia/econometrics-hansen-with-R/edit/main/chapters/intro-01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/FranSofia/econometrics-hansen-with-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
@@ -676,6 +677,53 @@ A = \bigcup_{i=1}^{\infty} (A \cap B_i).
 </span></p>
 <p>Los conjuntos <span class="math inline">(A \cap B_i)</span> son mutuamente disjuntos<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 </div>
+</section>
+<section id="función-de-probabilidad" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="función-de-probabilidad"><span class="header-section-number">2.3</span> Función de probabilidad</h2>
+<div id="def-probability-func" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.2 (Función de probabilidad)</strong></span> Una función <span class="math inline">\mathbb{P}</span> que asigna un valor numérico a los eventosse llama <strong>función de probabilidad</strong> si satisface los siguientes <strong>Axiomas de la Probabilidad</strong>:</p>
+<ol type="1">
+<li><p><span class="math inline">\mathbb{P}[A] \ge 0</span>.</p></li>
+<li><p><span class="math inline">\mathbb{P}[S] = 1</span>.</p></li>
+<li><p>Si <span class="math inline">A_1, A_2, \ldots</span> son disjuntos, entonces<br>
+<span class="math display">
+\mathbb{P}\!\left[ \bigcup_{j=1}^{\infty} A_j \right]
+= \sum_{j=1}^{\infty} \mathbb{P}[A_j].
+</span></p></li>
+</ol>
+<p>Hansen, utiliza la notación <span class="math inline">\mathbb{P}[A]</span> o para indicar la probabilidad de un evento <span class="math inline">A</span>. Otra notación común incluye <span class="math inline">P(A)</span> y <span class="math inline">\Pr(A)</span> y las usaremos también.</p>
+</div>
+<p>Desglosemos la definición. La frase “una función <span class="math inline">\mathbb{P}</span> que asigna un valor numérico a los eventos” significa que <span class="math inline">\mathbb{P}</span> es una función cuyo dominio es el conjunto de eventos y cuyo codominio es la recta real. Por lo tanto, las probabilidades son números. Por lo tanto, ese <em>outcome</em>, que es un número, es el <em>valor</em> de la probabilidad calculada. Consideremos, además, los Axiomas en cuestión.</p>
+<ul>
+<li><p>El <strong>primer Axioma</strong> establece que las probabilidades son no negativas.</p></li>
+<li><p>El <strong>segundo Axioma</strong> es esencialmente una normalización: la probabilidad de que “algo ocurra” es uno.</p></li>
+<li><p>El <strong>tercer Axioma</strong> impone una estructura considerable. Establece que las probabilidades son aditivas en eventos disjuntos. Es decir, si <span class="math inline">A</span> y <span class="math inline">B</span> son disjuntos entonces:</p></li>
+</ul>
+<p><span class="math display">
+  \mathbb{P}[A \cup B] = \mathbb{P}[A] + \mathbb{P}[B].
+  </span></p>
+<p>Por ejmplo, si tomamos el lanzamiento de un dado, con 6 caras y por tanto 6 resultados posibles, tal que <span class="math inline">\{1, 2, 3, 4, 5, 6\}</span>. Entonces, si los <em>outcomes</em> son mutuamente disjuntos, siguiendo el tercer axioma, se tendría que, e.g., <span class="math inline">\Pr[1 \text{ o } 2] = \Pr(1) + \Pr(2)</span>. Que, como podríamos intuir sabiendo la probabilidad de cada resultados de un dado, es <span class="math inline">\frac{1}{6}+\frac{1}{6}</span>. Es decir, <span class="math inline">\frac{1}{3}=0.\bar{3}</span>. Simulemos esto en R, lanzando un dado, por ejemplo, 10.000 veces. Debería darnos más o menos 0,3 periodico<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Supondremos además de que es un dado justo y que tiene reemplazo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simular 10000 lanzamientos de un dado justo</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimar P(1) + P(2)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3309</code></pre>
+</div>
+</div>
+<p>Ahora bien, cuando se utiliza el tercer axioma es importante tener cuidado de aplicarlo únicamente a eventos disjuntos. Consideremos, e.g., el lanzamiento de un par de dados. Sea <span class="math inline">A</span> el evento “1 en el primer lanzamiento” y <span class="math inline">B</span> el evento “1 en el segundo lanzamiento”. Es tentador escribir<br>
+<span class="math display">
+\mathbb{P}[\text{“1 en alguno de los dos lanzamientos”}] = \mathbb{P}[A \cup B] = \mathbb{P}[A] + \mathbb{P}[B],
+</span> pero la segunda igualdad es incorrecta porque <span class="math inline">A</span> y <span class="math inline">B</span> no son disjuntos. El resultado “1 en ambos lanzamientos” es un elemento tanto de <span class="math inline">A</span> como de <span class="math inline">B</span>.</p>
+<p>Por otro lado, cualquier función <span class="math inline">\mathbb{P}</span> que satisfaga los axiomas es una función de probabilidad válida. Consideremos de nuevo el ejemplo del lanzamiento de una moneda. Una función de probabilidad válida fija <span class="math inline">\mathbb{P}[H] = 0.5</span> y <span class="math inline">\mathbb{P}[T] = 0.5</span>. (Esto se llama típicamente una <strong>moneda equilibrada u honesta</strong> (<em>fair coin</em>)). Una segunda función de probabilidad válida fija <span class="math inline">\mathbb{P}[H] = 0.6</span> y <span class="math inline">\mathbb{P}[T] = 0.4</span>. Sin embargo, una función que fija <span class="math inline">\mathbb{P}[H] = -0.6</span> no es válida (viola el primer axioma, pues es negativa), y una función que fija <span class="math inline">\mathbb{P}[H] = 0.6</span> y <span class="math inline">\mathbb{P}[T] = 0.6</span> no es válida (viola el segundo axioma, ya que <span class="math inline">0.6+0.6&gt;1</span>).</p>
+<p>Con todo, aunque la definición establece que una función de probabilidad debe satisfacer ciertas reglas, no describe el <strong>significado</strong> de la probabilidad. La razón es que existen múltiples interpretaciones. Una visión es que las probabilidades son la frecuencia relativa de los resultados en un experimento controlado. La probabilidad de que el mercado bursátil aumente es la frecuencia de aumentos. La probabilidad de que la duración del desempleo exceda un mes es la frecuencia de duraciones de desempleo que exceden un mes. La probabilidad de que un jugador de baloncesto enceste un tiro libre es la frecuencia con la cual el jugador encesta tiros libres. La probabilidad de que ocurra una recesión es la frecuencia relativa de recesiones. Estos ejemplos son, justamente, interpretacionees frecuentistas (relativa en este caso) de la probabilidad.</p>
+<p>En algunos ejemplos esto es conceptualmente claro, ya que el experimento se repite o tiene múltiples ocurrencias. En otros casos una situación ocurre exactamente una vez y nunca se repetirá. Al escribir este párrafo, preguntas de incertidumbre de interés general incluyen “¿Saldrá el Reino Unido de la Unión Europea?” y “¿El calentamiento global excederá los 2 grados?”. En estos casos es difícil interpretar la probabilidad como una frecuencia relativa porque el resultado solo puede ocurrir una vez. La interpretación puede rescatarse considerando la “frecuencia relativa” de manera abstracta imaginando muchos universos alternativos que comienzan desde las mismas condiciones iniciales pero evolucionan aleatoriamente.</p>
+<p>Otra visión es que la probabilidad es subjetiva. Esta visión sostiene que las probabilidades pueden interpretarse como grados de creencia. Si digo “La probabilidad de que llueva mañana es 80%” quiero decir que esta es mi evaluación subjetiva de la <em>verosimilitud</em> basada en la información disponible para mí. Esto puede parecer demasiado amplio ya que permitiría creencias arbitrarias, pero la interpretación subjetiva requiere que la probabilidad subjetiva siga los axiomas y reglas de la probabilidad, y que se actualicen las creencias conforme se revela nueva información<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>En cualquier caso, lo que tienen en común ambas definiciones es que la función de probabilidad sigue los mismos axiomas; de lo contrario, no debería utilizarse la etiqueta «probabilidad».</p>
 
 
 <!-- -->
@@ -689,7 +737,9 @@ Hansen, B. E. (2021). <em>Introduction to Econometrics</em>. University of Wisco
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Una demostración se proporciona en la Sección 1.15.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Una demostración se proporciona en la Sección 2.15.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Y si fuera un número cada vez mayor sería cada vez más cercano el valor a 0,33333… Luego veremos por qué<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Es más, la interpretación subjetiva de la probabilidad está en los fundamentos de la teoría bayesiana de la probabilidad<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1164,117 +1214,195 @@ Hansen, B. E. (2021). <em>Introduction to Econometrics</em>. University of Wisco
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Teoría básica de la probabilidad (*Basic Probability Theory*)"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica. Entonces, es inevitable arrancar por aquí si se quiere tener un dominio consciente y robusto sobre la econometría. </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>En primer lugar, la probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Es decir, para representar científicamente algo que no sabemos exactamente cuál es su comportamiento (ni cuál será en el futuro). Así, cuando se dice que algo es *incierto* se dice que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte del pregrado de Sociología de alguna universidad? Por *variabilidad* queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes del pregrado de Sociología fluctúa de un año a otro, es porque *varía*, posee el atributo de la *variabilidad*. Finalmente, por *aleatoriedad* se entiende que la variabilidad del fenómeno a estudiar tiene algún tipo de *patrón*. Por ejemplo, el número de estudiantes de Sociología puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. Pero es muy improbable que lleguen 100 el próximo año. Con todo ello, la probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resultados (*Outcomes*) y Eventos</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Partamos con un ejemplo, supongamos que tomamos una moneda, la lanzamos al aire y la dejamos caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. Supongamos ahora que se registra el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. O supongamos que seleccionamos un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Para todo ello, usaremos los siguientes términos:</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es $H$ o $T$. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como $HT$ para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $<span class="sc">\{</span>1,2,3,4,5,6<span class="sc">\}</span>$.</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **espacio muestral** (*sample space*) $S$ es el **conjunto** de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = <span class="sc">\{</span>H, T<span class="sc">\}</span>$. Si se lanzan dos monedas, el espacio muestral es $S = <span class="sc">\{</span>HH, HT, TH, TT<span class="sc">\}</span>$.</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = <span class="sc">\{</span>1,2<span class="sc">\}</span>$.</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $<span class="sc">\{</span>HH, HT<span class="sc">\}</span>$ se muestra con la elipse en la @fig-1-espacio-muestral. Las operaciones con conjuntos son útiles para describir eventos. En R, podríamos representarlo así: </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-1-espacio-muestral</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: "Espacio muestral"</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.align: "center"</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (a) One Coin ---</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujar el óvalo</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Poner H y T</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="st">"H"</span>)</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="st">"T"</span>)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(a) One Coin"</span>)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (b) Two Coins ---</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo exterior</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo interior (subconjunto)</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">2.2</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="st">"TH"</span>)</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">7</span>, <span class="fl">6.6</span>, <span class="st">"TT"</span>)</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">5.8</span>, <span class="st">"HT"</span>)</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">4.2</span>, <span class="st">"HH"</span>)</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(b) Two Coins"</span>)</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>Para describir las representaciones y operaciones con eventos, usaremos las siguientes definiciones: </span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>::: {#def-events}</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conjuntos de eventos</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>Sean $A$ y $B$ eventos.</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$A$ es un **subconjunto** de $B$, escrito $A \subseteq B$, si cada elemento de $A$ es un elemento de $B$.</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>El evento sin resultados $\varnothing = <span class="sc">\{\}</span>$ se llama **conjunto nulo** (*null*) o **conjunto vacío** (*empty set*).</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**La unión** $A \cup B$ es el conjunto de todos los resultados que están en $A$ o en $B$ (o en ambos).</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**La intersección** $A \cap B$ es el conjunto de elementos que están tanto en $A$ como en $B$.</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**El complemento** $A^{c}$ de $A$ es el conjunto de todos los resultados en $S$ que no están en $A$.</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Los eventos $A$ y $B$ son disjuntos** si no tienen resultados en común. Esto es,  </span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>   $$A \cap B = \varnothing.$$</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Los eventos $A_1, A_2, \ldots$ forman **una partición** de $S$ si son mutuamente disjuntos y su unión es $S$.</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>Así, @hansen2021intro menciona que los eventos satisfacen las reglas de las operaciones con conjuntos, incluidas las leyes conmutativa, asociativa y distributiva. Para lo cual, el siguiente teorema es útil.</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>::: {#thm-partitioning}</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Teorema de partición</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>Si $<span class="sc">\{</span>B_1, B_2, \ldots<span class="sc">\}</span>$ es una partición de $S$, entonces para cualquier evento $A$ se cumple:</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>A = \bigcup_{i=1}^{\infty} (A \cap B_i).</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^<span class="co">[</span><span class="ot">Una demostración se proporciona en la Sección 1.15.</span><span class="co">]</span>.</span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Teoría básica de la probabilidad (*Basic Probability Theory*)"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>La teoría de la probabilidad es fundamental para la economía y la econometría. La probabilidad es el lenguaje matemático utilizado para manejar la incertidumbre, lo cual es central para la teoría económica moderna. La probabilidad es también la base de la estadística matemática, que es la base de la teoría econométrica. Entonces, es inevitable arrancar por aquí si se quiere tener un dominio consciente y robusto sobre la econometría. </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>En primer lugar, la probabilidad se usa para modelar incertidumbre, variabilidad y aleatoriedad. Es decir, para representar científicamente algo que no sabemos exactamente cuál es su comportamiento (ni cuál será en el futuro). Así, cuando se dice que algo es *incierto* se dice que el resultado es desconocido. Por ejemplo, ¿cuántos estudiantes habrá en la cohorte del pregrado de Sociología de alguna universidad? Por *variabilidad* queremos decir que el resultado no es el mismo en todas las ocurrencias. Por ejemplo, el número de estudiantes del pregrado de Sociología fluctúa de un año a otro, es porque *varía*, posee el atributo de la *variabilidad*. Finalmente, por *aleatoriedad* se entiende que la variabilidad del fenómeno a estudiar tiene algún tipo de *patrón*. Por ejemplo, el número de estudiantes de Sociología puede fluctuar entre 20 y 30, siendo 25 más probable que 20 o 30. Pero es muy improbable que lleguen 100 el próximo año. Con todo ello, la probabilidad nos proporciona un lenguaje matemático para describir incertidumbre, variabilidad y aleatoriedad.</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resultados (*Outcomes*) y Eventos</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>Partamos con un ejemplo, supongamos que tomamos una moneda, la lanzamos al aire y la dejamos caer al suelo. ¿Qué ocurrirá? ¿Será el resultado “cara” (H) o “cruz” (T)? No conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. Supongamos ahora que se registra el cambio en el valor de un índice bursátil durante un período de tiempo. ¿Aumentará o disminuirá el valor? Nuevamente, no conocemos el resultado por adelantado, por lo que describimos el resultado como aleatorio. O supongamos que seleccionamos un individuo al azar y le preguntas acerca de su situación económica. ¿Cuál es su salario por hora? No lo sabemos por adelantado. La falta de conocimiento previo nos lleva a describir el resultado como aleatorio.</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>Para todo ello, usaremos los siguientes términos:</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **resultado** (*outcome*) es un resultado específico. Por ejemplo, en un lanzamiento de moneda el resultado es $H$ o $T$. Si dos monedas se lanzan en secuencia, podríamos tener un resultado como $HT$ para “cara” en el primer lanzamiento y “cruz” en el segundo. En el lanzamiento de un dado de seis caras, los resultados posibles son $<span class="sc">\{</span>1,2,3,4,5,6<span class="sc">\}</span>$.</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **espacio muestral** (*sample space*) $S$ es el **conjunto** de todos los resultados posibles. En un lanzamiento de moneda el espacio muestral es $S = <span class="sc">\{</span>H, T<span class="sc">\}</span>$. Si se lanzan dos monedas, el espacio muestral es $S = <span class="sc">\{</span>HH, HT, TH, TT<span class="sc">\}</span>$.</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un **evento** (*event*) $A$ es un **subconjunto** de resultados en $S$. Un ejemplo proveniente del lanzamiento de un dado es $A = <span class="sc">\{</span>1,2<span class="sc">\}</span>$.</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>Los espacios muestrales de una y dos monedas se ilustran en la Figura 1.1. El evento $<span class="sc">\{</span>HH, HT<span class="sc">\}</span>$ se muestra con la elipse en la @fig-1-espacio-muestral. Las operaciones con conjuntos son útiles para describir eventos. En R, podríamos representarlo así: </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-1-espacio-muestral</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.cap: "Espacio muestral"</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.align: "center"</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (a) One Coin ---</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujar el óvalo</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Poner H y T</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="st">"H"</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="st">"T"</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(a) One Coin"</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (b) Two Coins ---</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo exterior</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">4.5</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Óvalo interior (subconjunto)</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="fu">symbols</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="at">circles =</span> <span class="fl">2.2</span>, <span class="at">inches =</span> <span class="cn">FALSE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">fg =</span> <span class="st">"black"</span>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="st">"TH"</span>)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">7</span>, <span class="fl">6.6</span>, <span class="st">"TT"</span>)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">5.8</span>, <span class="st">"HT"</span>)</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">5</span>, <span class="fl">4.2</span>, <span class="st">"HH"</span>)</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"(b) Two Coins"</span>)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>Para describir las representaciones y operaciones con eventos, usaremos las siguientes definiciones: </span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>::: {#def-events}</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conjuntos de eventos</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>Sean $A$ y $B$ eventos.</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$A$ es un **subconjunto** de $B$, escrito $A \subseteq B$, si cada elemento de $A$ es un elemento de $B$.</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>El evento sin resultados $\varnothing = <span class="sc">\{\}</span>$ se llama **conjunto nulo** (*null*) o **conjunto vacío** (*empty set*).</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**La unión** $A \cup B$ es el conjunto de todos los resultados que están en $A$ o en $B$ (o en ambos).</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**La intersección** $A \cap B$ es el conjunto de elementos que están tanto en $A$ como en $B$.</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**El complemento** $A^{c}$ de $A$ es el conjunto de todos los resultados en $S$ que no están en $A$.</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Los eventos $A$ y $B$ son disjuntos** si no tienen resultados en común. Esto es,  </span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>   $$A \cap B = \varnothing.$$</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Los eventos $A_1, A_2, \ldots$ forman **una partición** de $S$ si son mutuamente disjuntos y su unión es $S$.</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>Así, @hansen2021intro menciona que los eventos satisfacen las reglas de las operaciones con conjuntos, incluidas las leyes conmutativa, asociativa y distributiva. Para lo cual, el siguiente teorema es útil.</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>::: {#thm-partitioning}</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Teorema de partición</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>Si $<span class="sc">\{</span>B_1, B_2, \ldots<span class="sc">\}</span>$ es una partición de $S$, entonces para cualquier evento $A$ se cumple:</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>A = \bigcup_{i=1}^{\infty} (A \cap B_i).</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^<span class="co">[</span><span class="ot">Una demostración se proporciona en la Sección 2.15.</span><span class="co">]</span>.</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Función de probabilidad</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>::: {#def-probability-func}</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Función de probabilidad</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>Una función $\mathbb{P}$ que asigna un valor numérico a los eventosse llama **función de probabilidad** si satisface los siguientes **Axiomas de la Probabilidad**:</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathbb{P}<span class="co">[</span><span class="ot">A</span><span class="co">]</span> \ge 0$.</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$\mathbb{P}<span class="co">[</span><span class="ot">S</span><span class="co">]</span> = 1$.</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Si $A_1, A_2, \ldots$ son disjuntos, entonces  </span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>   \mathbb{P}<span class="sc">\!</span>\left<span class="co">[</span><span class="ot"> \bigcup_{j=1}^{\infty} A_j \right</span><span class="co">]</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>   = \sum_{j=1}^{\infty} \mathbb{P}<span class="co">[</span><span class="ot">A_j</span><span class="co">]</span>.</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>Hansen, utiliza la notación $\mathbb{P}<span class="co">[</span><span class="ot">A</span><span class="co">]</span>$ o para indicar la probabilidad de un evento $A$. Otra notación común incluye $P(A)$ y $\Pr(A)$ y las usaremos también.</span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>Desglosemos la definición. La frase “una función $\mathbb{P}$ que asigna un valor numérico a los eventos” significa que $\mathbb{P}$ es una función cuyo dominio es el conjunto de eventos y cuyo codominio es la recta real. Por lo tanto, las probabilidades son números. Por lo tanto, ese *outcome*, que es un número, es el *valor* de la probabilidad calculada. Consideremos, además, los Axiomas en cuestión. </span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **primer Axioma** establece que las probabilidades son no negativas.</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **segundo Axioma** es esencialmente una normalización: la probabilidad de que “algo ocurra” es uno.</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>El **tercer Axioma** impone una estructura considerable. Establece que las probabilidades son aditivas en eventos disjuntos. Es decir, si $A$ y $B$ son disjuntos entonces:</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>  \mathbb{P}<span class="co">[</span><span class="ot">A \cup B</span><span class="co">]</span> = \mathbb{P}<span class="co">[</span><span class="ot">A</span><span class="co">]</span> + \mathbb{P}<span class="co">[</span><span class="ot">B</span><span class="co">]</span>.</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>Por ejmplo, si tomamos el lanzamiento de un dado, con 6 caras y por tanto 6 resultados posibles, tal que $<span class="sc">\{</span>1, 2, 3, 4, 5, 6<span class="sc">\}</span>$. Entonces, si los *outcomes* son mutuamente disjuntos, siguiendo el tercer axioma, se tendría que, e.g.,  $\Pr<span class="co">[</span><span class="ot">1 \text{ o } 2</span><span class="co">]</span> = \Pr(1) + \Pr(2)$. Que, como podríamos intuir sabiendo la probabilidad de cada resultados de un dado, es $\frac{1}{6}+\frac{1}{6}$. Es decir, $\frac{1}{3}=0.\bar{3}$. Simulemos esto en R, lanzando un dado, por ejemplo, 10.000 veces. Debería darnos más o menos 0,3 periodico^<span class="co">[</span><span class="ot">Y si fuera un número cada vez mayor sería cada vez más cercano el valor a 0,33333... Luego veremos por qué</span><span class="co">]</span>. Supondremos además de que es un dado justo y que tiene reemplazo: </span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: simulacion-dado-justo</span></span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a><span class="co"># Simular 10000 lanzamientos de un dado justo</span></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimar P(1) + P(2)</span></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>Ahora bien, cuando se utiliza el tercer axioma es importante tener cuidado de aplicarlo únicamente a eventos disjuntos. Consideremos, e.g., el lanzamiento de un par de dados. Sea $A$ el evento “1 en el primer lanzamiento” y $B$ el evento “1 en el segundo lanzamiento”. Es tentador escribir  </span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>\mathbb{P}<span class="co">[</span><span class="ot">\text{“1 en alguno de los dos lanzamientos”}</span><span class="co">]</span> = \mathbb{P}<span class="co">[</span><span class="ot">A \cup B</span><span class="co">]</span> = \mathbb{P}<span class="co">[</span><span class="ot">A</span><span class="co">]</span> + \mathbb{P}<span class="co">[</span><span class="ot">B</span><span class="co">]</span>,</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>pero la segunda igualdad es incorrecta porque $A$ y $B$ no son disjuntos. El resultado “1 en ambos lanzamientos” es un elemento tanto de $A$ como de $B$.</span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>Por otro lado, cualquier función $\mathbb{P}$ que satisfaga los axiomas es una función de probabilidad válida. Consideremos de nuevo el ejemplo del lanzamiento de una moneda. Una función de probabilidad válida fija $\mathbb{P}<span class="co">[</span><span class="ot">H</span><span class="co">]</span> = 0.5$ y $\mathbb{P}<span class="co">[</span><span class="ot">T</span><span class="co">]</span> = 0.5$. (Esto se llama típicamente una **moneda equilibrada u honesta** (*fair coin*)). Una segunda función de probabilidad válida fija $\mathbb{P}<span class="co">[</span><span class="ot">H</span><span class="co">]</span> = 0.6$ y $\mathbb{P}<span class="co">[</span><span class="ot">T</span><span class="co">]</span> = 0.4$. Sin embargo, una función que fija $\mathbb{P}<span class="co">[</span><span class="ot">H</span><span class="co">]</span> = -0.6$ no es válida (viola el primer axioma, pues es negativa), y una función que fija $\mathbb{P}<span class="co">[</span><span class="ot">H</span><span class="co">]</span> = 0.6$ y $\mathbb{P}<span class="co">[</span><span class="ot">T</span><span class="co">]</span> = 0.6$ no es válida (viola el segundo axioma, ya que $0.6+0.6&gt;1$).</span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>Con todo, aunque la definición establece que una función de probabilidad debe satisfacer ciertas reglas, no describe el **significado** de la probabilidad. La razón es que existen múltiples interpretaciones. Una visión es que las probabilidades son la frecuencia relativa de los resultados en un experimento controlado. La probabilidad de que el mercado bursátil aumente es la frecuencia de aumentos. La probabilidad de que la duración del desempleo exceda un mes es la frecuencia de duraciones de desempleo que exceden un mes. La probabilidad de que un jugador de baloncesto enceste un tiro libre es la frecuencia con la cual el jugador encesta tiros libres. La probabilidad de que ocurra una recesión es la frecuencia relativa de recesiones. Estos ejemplos son, justamente, interpretacionees frecuentistas (relativa en este caso) de la probabilidad.</span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>En algunos ejemplos esto es conceptualmente claro, ya que el experimento se repite o tiene múltiples ocurrencias. En otros casos una situación ocurre exactamente una vez y nunca se repetirá. Al escribir este párrafo, preguntas de incertidumbre de interés general incluyen “¿Saldrá el Reino Unido de la Unión Europea?” y “¿El calentamiento global excederá los 2 grados?”. En estos casos es difícil interpretar la probabilidad como una frecuencia relativa porque el resultado solo puede ocurrir una vez. La interpretación puede rescatarse considerando la “frecuencia relativa” de manera abstracta imaginando muchos universos alternativos que comienzan desde las mismas condiciones iniciales pero evolucionan aleatoriamente.</span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>Otra visión es que la probabilidad es subjetiva. Esta visión sostiene que las probabilidades pueden interpretarse como grados de creencia. Si digo “La probabilidad de que llueva mañana es 80%” quiero decir que esta es mi evaluación subjetiva de la *verosimilitud* basada en la información disponible para mí. Esto puede parecer demasiado amplio ya que permitiría creencias arbitrarias, pero la interpretación subjetiva requiere que la probabilidad subjetiva siga los axiomas y reglas de la probabilidad, y que se actualicen las creencias conforme se revela nueva información^<span class="co">[</span><span class="ot">Es más, la interpretación subjetiva de la probabilidad está en los fundamentos de la teoría bayesiana de la probabilidad</span><span class="co">]</span>. </span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>En cualquier caso, lo que tienen en común ambas definiciones es que la función de probabilidad sigue los mismos axiomas; de lo contrario, no debería utilizarse la etiqueta «probabilidad».</span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
