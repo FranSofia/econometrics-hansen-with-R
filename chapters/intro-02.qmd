@@ -1,5 +1,0 @@
----
-title: "Random Variables"
-format: html
----
-

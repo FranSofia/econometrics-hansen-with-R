@@ -1,0 +1,6 @@
+---
+title: "Regresión no paramétrica (*Nonparametric Regression*)"
+format: html
+---
+
+

@@ -1,0 +1,5 @@
+---
+title: "Métodos bayesianos (*Bayesian Methods*)"
+format: html
+---
+

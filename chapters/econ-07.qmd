@@ -1,6 +1,0 @@
----
-title: "econ-07"
-format: html
----
-
-

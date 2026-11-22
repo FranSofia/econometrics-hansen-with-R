@@ -1,0 +1,6 @@
+---
+title: "Regresión discontinua (*Regression Discontinuity*)"
+format: html
+---
+
+

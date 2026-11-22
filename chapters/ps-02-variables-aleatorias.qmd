@@ -1,0 +1,5 @@
+---
+title: "Variables aleatorias (*Random Variables*)"
+format: html
+---
+

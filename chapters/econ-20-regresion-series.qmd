@@ -1,0 +1,6 @@
+---
+title: "Regresión por series (*Series Regression*)"
+format: html
+---
+
+

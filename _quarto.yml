@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Econometrics"
-  subtitle: "Notas basadas en Hansen"
+  subtitle: "Apuntes sobre los libros de Bruce E. Hansen, con aplicaciones en R"
   author: "Fran Sofía Núñez Rebolledo"
   date: today
   date-format: "D [de] MMMM [de] YYYY"
@@ -20,67 +20,80 @@ book:
   # Estructura del libro
   chapters:
     - index.qmd
-    
-    - part: "Introduction to Econometrics"
+
+    - part: "Probability and Statistics for Economists"
       chapters:
-        - chapters/intro-00.qmd
-        - chapters/intro-01.qmd
-        - chapters/intro-02.qmd
-        - chapters/intro-03.qmd
-        - chapters/intro-04.qmd
-        - chapters/intro-05.qmd
-        - chapters/intro-06.qmd
-        - chapters/intro-07.qmd
-        - chapters/intro-08.qmd
-        - chapters/intro-09.qmd
-        - chapters/intro-10.qmd
-        - chapters/intro-11.qmd
-        - chapters/intro-12.qmd
-        - chapters/intro-13.qmd
-        - chapters/intro-14.qmd
-        - chapters/intro-15.qmd
-        - chapters/intro-16.qmd
-        - chapters/intro-17.qmd
-        - chapters/intro-18.qmd
-    
-    - part: "Econometrics"
+        - chapters/ps-00-prefacio.qmd
+        - chapters/ps-01-probabilidad-basica.qmd
+        - chapters/ps-02-variables-aleatorias.qmd
+        - chapters/ps-03-distribuciones-parametricas.qmd
+        - chapters/ps-04-distribuciones-multivariadas.qmd
+        - chapters/ps-05-distribucion-normal.qmd
+        - chapters/ps-06-muestreo.qmd
+        - chapters/ps-07-ley-grandes-numeros.qmd
+        - chapters/ps-08-limite-central.qmd
+        - chapters/ps-09-asintotica-avanzada.qmd
+        - chapters/ps-10-maxima-verosimilitud.qmd
+        - chapters/ps-11-metodo-momentos.qmd
+        - chapters/ps-12-optimizacion-numerica.qmd
+        - chapters/ps-13-pruebas-hipotesis.qmd
+        - chapters/ps-14-intervalos-confianza.qmd
+        - chapters/ps-15-estimacion-contraccion.qmd
+        - chapters/ps-16-metodos-bayesianos.qmd
+        - chapters/ps-17-densidad-no-parametrica.qmd
+        - chapters/ps-18-procesos-empiricos.qmd
+        - appendix/ps-apendice-a-matematicas.qmd
+
+    - part: "Econometrics · I. Regresión"
       chapters:
-        - chapters/econ-01.qmd
-        - chapters/econ-02.qmd
-        - chapters/econ-03.qmd
-        - chapters/econ-04.qmd
-        - chapters/econ-05.qmd
-        - chapters/econ-06.qmd
-        - chapters/econ-07.qmd
-        - chapters/econ-08.qmd
-        - chapters/econ-09.qmd
-        - chapters/econ-10.qmd
-        - chapters/econ-11.qmd
-        - chapters/econ-12.qmd
-        - chapters/econ-13.qmd
-        - chapters/econ-14.qmd
-        - chapters/econ-15.qmd
-        - chapters/econ-16.qmd
-        - chapters/econ-17.qmd
-        - chapters/econ-18.qmd
-        - chapters/econ-19.qmd
-        - chapters/econ-20.qmd
-        - chapters/econ-21.qmd
-        - chapters/econ-22.qmd
-        - chapters/econ-23.qmd
-        - chapters/econ-24.qmd
-        - chapters/econ-25.qmd
-        - chapters/econ-26.qmd
-        - chapters/econ-27.qmd
-        - chapters/econ-28.qmd
-        - chapters/econ-29.qmd
-    
-    - part: "Apéndices"
+        - chapters/econ-01-introduccion.qmd
+        - chapters/econ-02-esperanza-condicional.qmd
+        - chapters/econ-03-algebra-mco.qmd
+        - chapters/econ-04-regresion-mco.qmd
+        - chapters/econ-05-regresion-normal.qmd
+
+    - part: "Econometrics · II. Métodos de muestras grandes"
       chapters:
-        - appendix/intro-appendix.qmd
-        - appendix/econ-appendix-a.qmd
-        - appendix/econ-appendix-b.qmd
-        - appendix/referencias.qmd
+        - chapters/econ-06-asintotica-repaso.qmd
+        - chapters/econ-07-asintotica-mco.qmd
+        - chapters/econ-08-estimacion-restringida.qmd
+        - chapters/econ-09-pruebas-hipotesis.qmd
+        - chapters/econ-10-remuestreo.qmd
+
+    - part: "Econometrics · III. Modelos de ecuaciones múltiples"
+      chapters:
+        - chapters/econ-11-regresion-multivariada.qmd
+        - chapters/econ-12-variables-instrumentales.qmd
+        - chapters/econ-13-gmm.qmd
+
+    - part: "Econometrics · IV. Datos dependientes y de panel"
+      chapters:
+        - chapters/econ-14-series-tiempo.qmd
+        - chapters/econ-15-series-multivariadas.qmd
+        - chapters/econ-16-series-no-estacionarias.qmd
+        - chapters/econ-17-datos-panel.qmd
+        - chapters/econ-18-diferencias-en-diferencias.qmd
+
+    - part: "Econometrics · V. Métodos no paramétricos"
+      chapters:
+        - chapters/econ-19-regresion-no-parametrica.qmd
+        - chapters/econ-20-regresion-series.qmd
+        - chapters/econ-21-regresion-discontinua.qmd
+
+    - part: "Econometrics · VI. Métodos no lineales"
+      chapters:
+        - chapters/econ-22-m-estimadores.qmd
+        - chapters/econ-23-mco-no-lineales.qmd
+        - chapters/econ-24-regresion-cuantil.qmd
+        - chapters/econ-25-eleccion-binaria.qmd
+        - chapters/econ-26-eleccion-multiple.qmd
+        - chapters/econ-27-censura-seleccion.qmd
+        - chapters/econ-28-seleccion-modelos.qmd
+        - chapters/econ-29-machine-learning.qmd
+        - appendix/econ-apendice-a-algebra-matricial.qmd
+        - appendix/econ-apendice-b-desigualdades.qmd
+
+    - appendix/referencias.qmd
 
   # Opciones del sidebar
   sidebar:
@@ -105,6 +118,7 @@ format:
   html:
     theme: 
       light: [cosmo, styles/custom.scss]
+    mainfont: "Crimson Pro"
     toc: true
     toc-depth: 3
     toc-expand: 2
@@ -115,13 +129,51 @@ format:
     code-fold: false
     code-tools: true
     code-overflow: wrap
-    highlight-style: github
+    highlight-style: atom-one
     smooth-scroll: true
     link-external-newwindow: true
     link-external-icon: true
     citations-hover: true
     footnotes-hover: true
     html-math-method: katex
+
+  pdf:
+    documentclass: book
+    classoption: [oneside]
+    pdf-engine: lualatex
+    keep-tex: false
+    fontsize: 11pt
+    mainfont: "CrimsonPro"
+    mainfontoptions:
+      - Path=fonts/
+      - Extension=.ttf
+      - UprightFont=*-Regular
+      - BoldFont=*-SemiBold
+      - ItalicFont=*-Italic
+      - BoldItalicFont=*-SemiBoldItalic
+      - Numbers=OldStyle
+    monofont: "FiraCode"
+    monofontoptions:
+      - Path=fonts/
+      - Extension=.ttf
+      - UprightFont=*-Regular
+      - BoldFont=*-Bold
+      - Scale=0.85
+    mathfont: "NewCMMath-Book"
+    mathfontoptions:
+      - Path=fonts/
+      - Extension=.ttf
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=2.8cm
+      - right=2.8cm
+    colorlinks: true
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    highlight-style: atom-one
+    include-in-header: tex/preamble.tex
     
 # Opciones de ejecución de código
 execute:

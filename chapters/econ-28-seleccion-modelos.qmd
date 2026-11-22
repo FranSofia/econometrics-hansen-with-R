@@ -1,0 +1,6 @@
+---
+title: "Selección de modelos, contracción de Stein y promedio de modelos (*Model Selection, Stein Shrinkage, and Model Averaging*)"
+format: html
+---
+
+

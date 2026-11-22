@@ -77,7 +77,7 @@ jobs:
 
       # 4) Renderizar el proyecto Quarto (libro)
       - name: Render Quarto Project
-        run: quarto render
+        run: quarto render --to html
 
       # 5) Publicar en GitHub Pages usando la carpeta _book
       - name: Deploy to GitHub Pages

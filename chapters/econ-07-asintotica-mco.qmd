@@ -1,0 +1,6 @@
+---
+title: "Teoría asintótica de mínimos cuadrados (*Asymptotic Theory for Least Squares*)"
+format: html
+---
+
+

@@ -1,0 +1,6 @@
+---
+title: "Álgebra de mínimos cuadrados (*The Algebra of Least Squares*)"
+format: html
+---
+
+

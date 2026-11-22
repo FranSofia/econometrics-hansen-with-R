@@ -1,0 +1,6 @@
+---
+title: "Elección binaria (*Binary Choice*)"
+format: html
+---
+
+

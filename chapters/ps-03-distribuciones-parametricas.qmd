@@ -1,0 +1,5 @@
+---
+title: "Distribuciones paramétricas (*Parametric Distributions*)"
+format: html
+---
+

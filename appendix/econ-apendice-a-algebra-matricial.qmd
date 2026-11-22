@@ -1,0 +1,2 @@
+# Apéndice A: Álgebra matricial (*Matrix Algebra*) {.unnumbered}
+

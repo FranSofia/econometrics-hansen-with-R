@@ -1,0 +1,5 @@
+---
+title: "Teoría de procesos empíricos (*Empirical Process Theory*)"
+format: html
+---
+

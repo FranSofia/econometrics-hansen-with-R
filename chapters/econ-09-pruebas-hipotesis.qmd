@@ -1,0 +1,6 @@
+---
+title: "Pruebas de hipótesis (*Hypothesis Testing*)"
+format: html
+---
+
+

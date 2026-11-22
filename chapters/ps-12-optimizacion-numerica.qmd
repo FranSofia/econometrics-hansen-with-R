@@ -1,0 +1,5 @@
+---
+title: "Optimización numérica (*Numerical Optimization*)"
+format: html
+---
+

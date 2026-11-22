@@ -1,0 +1,6 @@
+---
+title: "Estimación restringida (*Restricted Estimation*)"
+format: html
+---
+
+

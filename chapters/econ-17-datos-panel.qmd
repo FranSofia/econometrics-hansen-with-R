@@ -1,0 +1,6 @@
+---
+title: "Datos de panel (*Panel Data*)"
+format: html
+---
+
+

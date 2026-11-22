@@ -1,0 +1,6 @@
+---
+title: "Regresión por mínimos cuadrados (*Least Squares Regression*)"
+format: html
+---
+
+

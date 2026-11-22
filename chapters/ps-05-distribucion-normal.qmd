@@ -1,0 +1,5 @@
+---
+title: "Distribución normal y distribuciones relacionadas (*Normal and Related Distributions*)"
+format: html
+---
+

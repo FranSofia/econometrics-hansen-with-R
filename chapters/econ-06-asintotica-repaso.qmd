@@ -1,0 +1,6 @@
+---
+title: "Repaso de asintótica de muestras grandes (*A Review of Large Sample Asymptotics*)"
+format: html
+---
+
+

@@ -1,12 +1,12 @@
 # Bienvenida {.unnumbered}
 
-Estas son mis notas personales basadas en los libros **Introduction to Econometrics** y **Econometrics** de Bruce E. Hansen. Es un apunte personal, donde busco no solo sistematizar el contenido de los libros de manera sintética, sino que también entregar ejemplos aplicados del contenido a R. Cabe destacar que, por lo sintético de algunos capítulos, mucho de lo que escriba serán traducciones casi literales del texto, pero esto no es una traducción del libro. 
+Estas son mis notas personales basadas en los libros **Probability and Statistics for Economists** y **Econometrics** de Bruce E. Hansen. Es un apunte personal, donde busco no solo sistematizar el contenido de los libros de manera sintética, sino que también entregar ejemplos aplicados del contenido a R. Cabe destacar que, por lo sintético de algunos capítulos, mucho de lo que escriba serán traducciones casi literales del texto, pero esto no es una traducción del libro. 
 
 ## Sobre estas notas
 
-Este libro contiene apuntes y resúmenes de los dos tomos de econometría de Bruce E. Hansen [@hansen2021intro; @hansen2021econ] :
+Este libro contiene apuntes y resúmenes de los dos tomos de econometría de Bruce E. Hansen [@hansen2022prob; @hansen2022econ] :
 
-- **Introduction to Econometrics** (18 capítulos + apéndice)
+- **Probability and Statistics for Economists** (18 capítulos + apéndice)
 - **Econometrics** (29 capítulos + 2 apéndices)
 
 ## Estructura
@@ -15,10 +15,10 @@ El libro está organizado en dos partes principales que corresponden a los dos t
 
 ## Recursos originales
 
-Los libros originales de Bruce E. Hansen están disponibles en:
+Los libros originales de Bruce E. Hansen fueron publicados por Princeton University Press (2022):
 
-- [Introduction to Econometrics](http://home.ustc.edu.cn/~matheming/Intro2Metrics.pdf)
-- [Econometrics](http://home.ustc.edu.cn/~matheming/Econometrics.pdf)
+- [Probability and Statistics for Economists](https://www.ssc.wisc.edu/~bhansen/)
+- [Econometrics](https://www.ssc.wisc.edu/~bhansen/)
 
 ## Nota
 

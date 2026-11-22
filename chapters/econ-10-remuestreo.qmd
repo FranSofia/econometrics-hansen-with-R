@@ -1,0 +1,6 @@
+---
+title: "Métodos de remuestreo (*Resampling Methods*)"
+format: html
+---
+
+

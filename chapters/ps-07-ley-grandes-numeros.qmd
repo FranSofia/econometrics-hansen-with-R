@@ -1,0 +1,5 @@
+---
+title: "Ley de los grandes números (*Law of Large Numbers*)"
+format: html
+---
+

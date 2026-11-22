@@ -1,0 +1,6 @@
+---
+title: "Diferencias en diferencias (*Difference in Differences*)"
+format: html
+---
+
+

@@ -1,0 +1,5 @@
+---
+title: "Estimación no paramétrica de densidades (*Nonparametric Density Estimation*)"
+format: html
+---
+

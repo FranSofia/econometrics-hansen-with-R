@@ -1,441 +1,305 @@
 /*-- scss:defaults --*/
 
-// Colores principales - Inspirado en el estilo académico
-$primary: #69000C;        // Rojo oscuro académico
-$secondary: #5F6A72;      // Gris azulado para acentos
-$accent: #E0C5C6;         // Rojo grisáceo para highlights
-$success: #2E7D32;        // Verde sobrio
-$info: #5F6A72;           // Gris para información
-$warning: #8C2028;        // Rojo grisáceo para advertencias
-$danger: #7F000D;         // Rojo para errores
+// ============================================================
+//  Estética de libro: imita el PDF de los apuntes de El capital
+//  (Minion Pro + rojo oscuro + versalitas). En web se usa
+//  Crimson Pro, la alternativa libre más cercana a Minion.
+// ============================================================
 
-// Colores de fondo y texto
-$body-bg: #FFFFFF;
-$body-color: #212121;     // Gris muy oscuro
-$text-muted: #616161;     // Gris medio
-$code-bg: #F5F5F5;        // Gris muy claro
-$code-color: #69000C;     // Rojo para código inline
+// ---------- Paleta (la misma del preámbulo LaTeX) ----------
+$darkRed:  #69000C;
+$deepRed:  #7F000D;
+$darkBlue: #19375A;
+$darkGray: #464646;
+$grayBlue: #466F9D;
+$paper:    #FFFFFF;
+$rule:     #D9D4CC;
 
-// Tipografía - Linux Libertine para libro
-$font-family-sans-serif: "Libertinus Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-$font-family-serif: "Libertinus Serif", "Linux Libertine", "Libertine", Georgia, "Times New Roman", serif;
-$font-family-monospace: "Fira Code", "Fira Mono", "Source Code Pro", Menlo, Monaco, Consolas, monospace;
+$primary:   $darkRed;
+$secondary: $darkGray;
+$info:      $darkBlue;
+$warning:   $deepRed;
+$danger:    $deepRed;
 
-// Para libro, usar serif como base
+$body-bg:    $paper;
+$body-color: #1E1E1E;
+$text-muted: #6B6B6B;
+
+// ---------- Tipografía ----------
+$font-family-serif: "Crimson Pro", "Minion Pro", "Libertinus Serif", Georgia, serif;
+$font-family-monospace: "Fira Code", "Source Code Pro", Consolas, monospace;
+$font-family-sans-serif: $font-family-serif;
 $font-family-base: $font-family-serif;
-
 $headings-font-family: $font-family-serif;
 $headings-font-weight: 600;
-$headings-color: $primary;
+$headings-color: $darkRed;
+$toc-font-size: 0.95rem;
+$sidebar-font-size: 1rem;
+$sidebar-font-size-section: 0.98rem;
 
-// Tamaños de texto - Ligeramente más grandes para libro
-$font-size-base: 1.1rem;
-$h1-font-size: 2.5rem;
-$h2-font-size: 2rem;
-$h3-font-size: 1.6rem;
-$h4-font-size: 1.3rem;
+$font-size-base: 1.2rem;   // Crimson tiene ojo pequeño: compensar
+$line-height-base: 1.55;
+$h1-font-size: 2.2rem;
+$h2-font-size: 1.55rem;
+$h3-font-size: 1.3rem;
+$h4-font-size: 1.15rem;
 
-// Espaciado
-$spacer: 1rem;
-
-// Enlaces
-$link-color: $primary;
-$link-hover-color: darken($primary, 10%);
+// ---------- Enlaces ----------
+$link-color: $darkRed;
 $link-decoration: none;
 $link-hover-decoration: underline;
 
-// Navbar/Sidebar
-$navbar-bg: $primary;
-$navbar-fg: white;
-$navbar-hl: $accent;
+// ---------- Código ----------
+$code-color: $darkRed;
+$code-bg: #F6F4F0;
+$code-block-bg: #F8F7F4;
+$code-block-border-left: $darkRed;
+
+// ---------- Sidebar y footer ----------
+$sidebar-bg: #FBFAF8;
+$sidebar-fg: $darkGray;
+$sidebar-hl: $darkRed;
+$footer-bg: $paper;
+$footer-fg: $text-muted;
 
 /*-- scss:rules --*/
 
-// Importar Libertinus desde CDN
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/index.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/libertinus-sans@5.3.0/index.css');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Fira+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fira+Code:wght@400;500&display=swap');
 
-// Estilos generales del body
+// ---------- Cuerpo ----------
 body {
-  font-size: $font-size-base;
-  line-height: 1.7;
-  color: $body-color;
-  font-weight: 400;
-  font-family: $font-family-serif;
+  font-variant-numeric: oldstyle-nums;   // como Numbers=OldStyle en el PDF
+  font-kerning: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-// Mejoras para títulos
+main.content {
+  max-width: 44rem;   // ancho de línea de libro (~70 caracteres)
+}
+
+main.content p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+// ---------- Títulos (versalitas rojas, como \titleformat) ----------
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 1.8em;
-  margin-bottom: 0.6em;
-  font-weight: $headings-font-weight;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
+  color: $darkRed;
+  border-bottom: none;
+  line-height: 1.25;
+  font-variant-numeric: lining-nums;
 }
 
-h1, .h1 {
-  border-bottom: 3px solid $primary !important;
-  padding-bottom: 0.4em;
-  margin-bottom: 1em;
+// Título de capítulo: grande, versalitas, sin subrayado grueso
+#title-block-header .title,
+h1.title {
+  font-size: 2.3rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.4em;
+  padding-bottom: 0.35em;
+  border-bottom: 0.5px solid $darkRed;
+}
+
+h1.title .chapter-number {
+  color: $darkRed;
+}
+
+h2 {
   font-weight: 700;
-  color: $primary !important;
+  margin-top: 2em;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
-h2, .h2 {
-  border-bottom: 2px solid lighten($primary, 45%) !important;
-  padding-bottom: 0.3em;
-  color: $primary !important;
-}
-
-h3, .h3 {
-  color: $primary !important;
+h3 {
+  font-variant: small-caps;
   font-weight: 600;
-  border-bottom: none !important;
+  letter-spacing: 0.02em;
+  margin-top: 1.6em;
 }
 
-h4, h5, h6, .h4, .h5, .h6 {
-  color: $primary !important;
-  border-bottom: none !important;
+h4, h5, h6 {
+  font-variant: small-caps;
   font-weight: 600;
+  color: $darkGray;
 }
 
-// Mejorar apariencia de código
-code {
-  background-color: $code-bg;
-  color: $code-color;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-size: 0.88em;
-  font-family: $font-family-monospace;
-  font-weight: 500;
+.header-section-number {
+  color: $darkRed;
+  margin-right: 0.25em;
 }
 
-pre {
-  background-color: #FAFAFA;
-  border: 1px solid #E0E0E0;
-  border-left: 4px solid $primary;
-  border-radius: 4px;
-  padding: 1em;
-  overflow-x: auto;
-  font-size: 0.92em;
-}
+// ---------- Cajas de resultados (imitan tcolorbox) ----------
+@mixin caja($col, $fondo) {
+  margin: 1.6em 0;
+  padding: 0.9em 1.1em 0.7em;
+  border: 0.5px solid $col;
+  border-radius: 2px;
+  background-color: $fondo;
 
-pre code {
-  background-color: transparent;
-  color: inherit;
-  padding: 0;
-}
-
-// Bloques de código con botón de copiar
-div.sourceCode {
-  background-color: #FAFAFA;
-  border: 1px solid #E0E0E0;
-  border-left: 4px solid $primary;
-  border-radius: 4px;
-  margin: 1.2em 0;
-}
-
-// Callouts para libro académico
-.callout {
-  margin: 1.5em 0;
-  padding: 1em 1em 1em 1.5em;
-  border-left: 4px solid;
-  border-radius: 0;
-  background-color: #FAFAFA;
-  
-  .callout-header {
-    font-weight: 600;
-    margin-bottom: 0.5em;
-    font-family: $headings-font-family;
+  > p:first-child .theorem-title,
+  > p:first-child .definition-title,
+  > p:first-child .example-title,
+  > p:first-child .lemma-title,
+  > p:first-child .proposition-title,
+  > p:first-child .corollary-title,
+  > p:first-child .exercise-title,
+  > p:first-child .remark-title {
+    color: $col;
+    font-weight: 700;
+    font-style: normal;
   }
 }
 
-.callout-note {
-  border-left-color: $secondary;
-  background-color: #F8F9FA;
+.definition                        { @include caja($darkRed,  rgba($darkRed, 0.04)); }
+.theorem, .lemma, .proposition,
+.corollary                         { @include caja($darkBlue, rgba($darkBlue, 0.04)); }
+.example, .exercise                { @include caja($darkGray, rgba($darkGray, 0.05)); }
+.remark                            { @include caja(#8A8A8A,  #F7F7F7); }
+
+.proof {
+  margin: 0.8em 0 1.6em;
+  .proof-title { font-style: italic; color: $darkGray; }
 }
 
-.callout-tip {
-  border-left-color: $success;
-  background-color: #F1F8F4;
+// ---------- Callouts sobrios ----------
+.callout {
+  border-radius: 2px;
+  border-left-width: 3px !important;
+  .callout-header { font-family: $font-family-serif; }
 }
 
-.callout-warning {
-  border-left-color: $warning;
-  background-color: #FFF8F0;
+// ---------- Código (Fira Code) ----------
+code {
+  font-family: $font-family-monospace;
+  font-size: 0.82em;
+  font-variant-numeric: normal;
 }
 
-.callout-important {
-  border-left-color: $danger;
-  background-color: #FFEBEE;
+p code:not(.sourceCode), li code:not(.sourceCode) {
+  background-color: $code-bg;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
 }
 
-// Tablas estilo académico
-table {
-  margin: 1.5em 0;
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 0.95em;
+div.sourceCode {
+  border: none;
+  border-left: 2px solid $darkRed;
+  border-radius: 0;
+  background-color: $code-block-bg;
 }
 
-thead {
-  background-color: $primary;
-  color: white;
-  font-weight: 600;
+pre.sourceCode, div.sourceCode pre {
+  font-size: 0.82em;
+  line-height: 1.5;
 }
 
-th, td {
-  padding: 0.75em 1em;
-  text-align: left;
-  border-bottom: 1px solid #E0E0E0;
+.cell-output pre {
+  font-family: $font-family-monospace;
+  font-size: 0.8em;
+  color: $darkGray;
+  background: transparent;
+  border-left: 2px solid $rule;
+  padding-left: 1em;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #FAFAFA;
-}
-
-tbody tr:hover {
-  background-color: #F5F5F5;
-}
-
-// Sidebar de libro
-.sidebar {
-  background-color: #FAFAFA;
-  border-right: 1px solid #E0E0E0;
-}
-
-.sidebar-title {
-  font-weight: 700;
-  color: $primary;
-  font-size: 1.2rem;
-}
-
-.sidebar nav[role="doc-toc"] ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.sidebar nav[role="doc-toc"] a {
-  color: $body-color;
-  text-decoration: none;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  display: block;
-  padding: 0.3em 0;
-}
-
-.sidebar nav[role="doc-toc"] a:hover {
-  color: $primary;
-  font-weight: 500;
-}
-
-.sidebar nav[role="doc-toc"] .active {
-  color: $primary;
-  font-weight: 600;
-  border-left: 3px solid $primary;
-  padding-left: 0.5em;
-}
-
-// Mejoras para listas
-ul, ol {
-  line-height: 1.8;
-  margin-bottom: 1em;
-}
-
-li {
-  margin-bottom: 0.4em;
-}
-
-// Blockquotes estilo libro
-blockquote {
-  border-left: 4px solid $primary;
-  padding-left: 1.2em;
-  margin: 1.5em 0;
-  color: $text-muted;
-  font-style: italic;
-  background-color: #FAFAFA;
-  padding: 1em 1em 1em 1.5em;
-}
-
-// Mejorar imágenes
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  margin: 1.5em auto;
-  display: block;
-}
-
-// Footer del libro
-.page-footer {
-  margin-top: 3em;
-  padding: 1.5em 0;
-  border-top: 2px solid #E0E0E0;
-  text-align: center;
-  color: $text-muted;
-  font-size: 0.9em;
-}
-
-// Ecuaciones matemáticas
+// ---------- Matemáticas ----------
 .katex {
-  font-size: 1.1em;
+  font-size: 1.08em;
 }
 
 .katex-display {
-  margin: 1.5em 0;
-  overflow-x: auto;
-}
-
-// Definiciones, teoremas, etc. (común en econometría)
-.theorem, .definition, .lemma, .proposition, .corollary {
-  margin: 1.5em 0;
-  padding: 1em 1em 1em 1.5em;
-  border-left: 4px solid $secondary;
-  background-color: #F8F9FA;
-  
-  .theorem-title, .definition-title, .lemma-title, 
-  .proposition-title, .corollary-title {
-    font-weight: 700;
-    color: $primary;
-    font-style: italic;
-    margin-bottom: 0.5em;
-  }
-}
-
-.proof {
-  margin: 1em 0 1.5em 0;
-  padding-left: 1.5em;
-  font-style: italic;
-  color: $text-muted;
-}
-
-.proof::before {
-  content: "Demostración. ";
-  font-weight: 600;
-  color: $body-color;
-}
-
-.proof::after {
-  content: " ∎";
-  float: right;
-}
-
-// Separador visual
-hr {
-  margin: 2.5em 0;
-  border: 0;
-  border-top: 2px solid lighten($primary, 50%);
-}
-
-// Destacar elementos importantes
-strong, b {
-  color: $primary;
-  font-weight: 700;
-}
-
-em, i {
-  font-style: italic;
-}
-
-// Enlaces en el contenido
-a:not(.btn) {
-  color: $primary;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    border-bottom-color: $primary;
-  }
-}
-
-// Responsive
-@media (max-width: 768px) {
-  body {
-    font-size: 1rem;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.6rem;
-  }
-  
-  h3 {
-    font-size: 1.3rem;
-  }
-  
-  table {
-    font-size: 0.85em;
-  }
-}
-
-// Animación suave
-html {
-  scroll-behavior: smooth;
-}
-
-// Destacar código inline
-p code, li code {
-  font-weight: 500;
-}
-
-// Selección de texto
-::selection {
-  background-color: $primary;
-  color: white;
-}
-
-// Ajustes específicos para contenido matemático
-.math {
+  margin: 1.2em 0;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
-// Navegación entre capítulos (prev/next)
-.page-navigation {
-  margin-top: 3em;
-  padding-top: 2em;
-  border-top: 2px solid #E0E0E0;
-  display: flex;
-  justify-content: space-between;
+// ---------- Tablas (estilo booktabs) ----------
+main.content table {
+  border-top: 1.5px solid $body-color;
+  border-bottom: 1.5px solid $body-color;
+  font-variant-numeric: lining-nums tabular-nums;
+  thead th { border-bottom: 0.8px solid $body-color; font-weight: 600; }
+  td, th { border-top: none; }
+  tbody tr:nth-child(even) { background: transparent; }
 }
 
-.nav-page {
-  color: $primary;
-  text-decoration: none;
+// ---------- Figuras ----------
+figcaption, .figure-caption {
+  font-size: 0.95em;
+  color: $darkGray;
+  text-align: center;
+}
+
+// ---------- Citas y énfasis ----------
+blockquote {
+  border-left: 2px solid $rule;
+  color: $darkGray;
+  font-style: normal;
+  padding-left: 1.2em;
+}
+
+strong { font-weight: 600; }
+
+hr {
+  border: 0;
+  border-top: 0.5px solid $rule;
+  margin: 2.5em auto;
+  width: 40%;
+}
+
+// ---------- Sidebar ----------
+.sidebar-title {
+  font-variant: small-caps;
+  font-weight: 700;
+  color: $darkRed;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-item-section > .sidebar-item-container .sidebar-item-text {
+  font-variant: small-caps;
   font-weight: 600;
-  padding: 0.5em 1em;
-  border: 2px solid $primary;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background-color: $primary;
-    color: white;
-  }
+  color: $darkRed;
+  letter-spacing: 0.02em;
 }
 
-/*----- Estilo personalizado para captions de figuras -----*/
+#quarto-sidebar .sidebar-item a.active .menu-text,
+#quarto-sidebar .sidebar-link.active {
+  color: $darkRed;
+  font-weight: 600;
+}
 
-.figure > figcaption,
-div.quarto-figure > figure > figcaption {
-  font-size: 1.05rem !important;     /* más formal */
-  font-family: $font-family-serif;   /* coincide con el cuerpo del libro */
-  color: $body-color !important;     /* más oscuro, más académico */
-  line-height: 1.4;
-  margin-top: 0.5rem;
+#quarto-sidebar {
+  border-right: 0.5px solid $rule;
+}
 
-  /* Alinear a la derecha */
-  text-align: right !important;
+// ---------- TOC derecha ----------
+#TOC, nav#TOC {
+  font-variant-numeric: lining-nums;
+  .nav-link.active { color: $darkRed; border-left-color: $darkRed; }
+}
 
-  /* Opción estética opcional: sangrado */
-  padding-right: 0.5rem;
+// ---------- Navegación entre capítulos ----------
+.page-navigation {
+  border-top: 0.5px solid $rule;
+  margin-top: 3em;
+  padding-top: 1.2em;
+  .nav-page a { color: $darkRed; }
+}
+
+.nav-footer {
+  border-top: 0.5px solid $rule;
+  font-size: 0.9em;
+}
+
+::selection {
+  background-color: rgba($darkRed, 0.15);
+}
+
+@media (max-width: 768px) {
+  main.content p { text-align: left; }
+  #title-block-header .title, h1.title { font-size: 1.8rem; }
 }

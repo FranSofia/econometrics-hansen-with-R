@@ -1,0 +1,6 @@
+---
+title: "Mínimos cuadrados no lineales (*Nonlinear Least Squares*)"
+format: html
+---
+
+

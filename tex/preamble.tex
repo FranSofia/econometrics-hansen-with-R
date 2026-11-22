@@ -1,0 +1,57 @@
+% ============================================================
+%  PREÁMBULO PDF · Apuntes de Hansen
+%  Basado en el preámbulo de los apuntes de El capital, tomo II
+%  Crimson Pro + New Computer Modern Math · motor: lualatex
+%  (las fuentes se cargan desde fonts/, que no se sube al repo)
+% ============================================================
+
+% ---------- Matemáticas ----------
+% Opción: letras y números de Crimson dentro de las fórmulas
+% (como el truco de Minion). Descomentar para probar.
+% \setmathfont[range={\mathup/{num,latin,Latin,greek,Greek}}, Path=fonts/]{CrimsonPro-Regular.ttf}
+% \setmathfont[range={\mathit/{num,latin,Latin,greek,Greek}}, Path=fonts/]{CrimsonPro-Italic.ttf}
+\linespread{1.08}
+\raggedbottom
+\usepackage{microtype}
+
+% ---------- Paquetes generales ----------
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\AtBeginEnvironment{Shaded}{\footnotesize}
+
+% ---------- Paleta (igual a styles/custom.scss) ----------
+\definecolor{darkRed}{RGB}{105,0,12}
+\definecolor{darkBlue}{RGB}{25,55,90}
+\definecolor{darkGray}{RGB}{70,70,70}
+\definecolor{grayBlue}{RGB}{70,111,157}
+
+% ---------- Títulos ----------
+\titleformat{\chapter}[hang]
+  {\normalfont\Huge\bfseries\scshape\color{darkRed}}
+  {\thechapter.}{0.5em}{}
+\titlespacing*{\chapter}{0pt}{24pt}{30pt}
+\titleformat*{\section}{\large\bfseries\color{darkRed}}
+\titleformat*{\subsection}{\normalsize\scshape\color{darkRed}}
+\titleformat*{\subsubsection}{\normalsize\scshape\color{darkGray}}
+
+% ---------- Encabezados y pie ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\scshape\color{darkGray}\nouppercase{\leftmark}}
+\fancyhead[R]{\small\color{darkGray}Fran Sofía Núñez Rebolledo}
+\fancyfoot[C]{\color{darkRed}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{%
+  \hbox to\headwidth{\color{darkRed}\leaders\hrule height \headrulewidth\hfill}}
+\fancypagestyle{plain}{%
+  \fancyhf{}\fancyfoot[C]{\color{darkRed}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+
+% ---------- Hipervínculos ----------
+\AtBeginDocument{\hypersetup{
+  linkcolor=darkRed,
+  urlcolor=grayBlue,
+  citecolor=darkRed}}

@@ -1,0 +1,6 @@
+---
+title: "Método generalizado de momentos (*Generalized Method of Moments*)"
+format: html
+---
+
+

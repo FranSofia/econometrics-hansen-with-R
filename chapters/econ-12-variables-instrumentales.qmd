@@ -1,0 +1,6 @@
+---
+title: "Variables instrumentales (*Instrumental Variables*)"
+format: html
+---
+
+

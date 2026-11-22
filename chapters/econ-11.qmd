@@ -1,6 +1,0 @@
----
-title: "econ-11"
-format: html
----
-
-
