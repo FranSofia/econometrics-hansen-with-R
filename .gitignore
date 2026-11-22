@@ -49,3 +49,6 @@ bibliography/
 
 **/*.quarto_ipynb
 .claude/
+CLAUDE.md
+/site_libs/
+*_files/

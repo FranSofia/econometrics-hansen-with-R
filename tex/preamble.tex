@@ -50,6 +50,14 @@
   \fancyhf{}\fancyfoot[C]{\color{darkRed}\thepage}%
   \renewcommand{\headrulewidth}{0pt}}
 
+% ---------- Numeración: Econometrics parte de nuevo en 1 ----------
+% La parte 1 es Probability and Statistics; al abrir la parte 2
+% (Econometrics, I) se reinicia el contador de capítulos.
+\makeatletter
+\apptocmd{\@part}{\ifnum\value{part}=2\relax\setcounter{chapter}{0}\fi}{}{}
+\makeatother
+\renewcommand{\theHchapter}{\thepart.\arabic{chapter}}  % anclas únicas
+
 % ---------- Hipervínculos ----------
 \AtBeginDocument{\hypersetup{
   linkcolor=darkRed,

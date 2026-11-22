@@ -35,7 +35,7 @@ Los libros originales de Bruce E. Hansen fueron publicados por Princeton Univers
 
 ## 🦦 Licencia
 
-Estas son notas personales con propósitos educativos. Los derechos de los contenidos originales pertenecen a Bruce E. Hansen.
+Estas son notas personales con propósitos de estudio personal. Es simplemente para ir registrando el proceso de aprendizaje al leer el libro y combinarlo con herramientas que conozco mejor, como R. El propósito central, por tanto, es meramente cognitivo y personal. Pero decidí publicarlo en una página web por si le es útil a alguien más. Los derechos de los contenidos originales pertenecen a Bruce E. Hansen. Y mis apuntes no reflejan el contenido de su libro, puedo cometer errores o tomar decisiones que el autor no consideraría. 
 
 ## 🐒 Autora
 

@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: _book
+  post-render: scripts/renumerar-econometrics.R
 
 book:
   title: "Econometrics"
