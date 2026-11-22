@@ -13,13 +13,9 @@ En el Prefacio del Libro "*Probability and Statistics for Economists*" [@hansen2
 
 Yo seguiré el mismo orden. Los libros están escritos como una serie integrada, pero se pueden usar libremente y de manera independiente para cursos de distinta naturaleza. En *Probability and Statistics for Economists* [@hansen2022prob], se tratará sobre todo de estadística matemática de nivel intermedio. Para ello, se utiliza herramientas del cálculo, pero no la *measure theory*. Se señala que el nivel de detalle y rigor es similar al de Casella y Berger (2002) y Hogg y Craig (1995). El material se explica mediante ejemplos al nivel de Hogg y Tanis (1997), dirigidos a estudiantes de economía. El objetivo es que sea accesible para estudiantes con diferentes antecedentes, pero sin renunciar al rigor matemático.
 
-# Sobre el autor  {.unnumbered}
-
-Bruce E. Hansen es titular de la cátedra distinguida Mary Claire Aschenbrenner Phipps (*Mary Claire Aschenbrenner Phipps Distinguished Chair of Economics*) de Economía en la Universidad de Wisconsin-Madison. Bruce es originario de Los Ángeles, California, y tiene una licenciatura en Economía por el Occidental College (1984) y un PhD en Economía por la Universidad de Yale (1989). Anteriormente impartió clases en la Universidad de Rochester y en el Boston College. Bruce es miembro de la Econometric Society, la *Journal of Econometrics* y la International Association of Applied Econometrics. Ha sido coeditor de *Econometric Theory* y editor asociado de *Econometrica*. Ha publicado 62 artículos en revistas especializadas que han recibido más de 36.000 citas al momento de publicarse esta edición [@hansen2022prob]. 
-
 # Preparación matemática {.unnumbered}
 
-Hensen [-@hansen2022prob], menciona que los estudiantes deberían estar familiarizados con cálculo integral, diferencial y multivariable, así como con álgebra lineal matricial. Este es el material típicamente enseñado en una secuencia de cuatro cursos de matemáticas de pregrado en una universidad estadounidense. No se asume experiencia previa en probabilidad, estadística o econometría, aunque sería útil. Es altamente recomendable, pero no necesario, haber estudiado análisis matemático y/o un curso de matemáticas orientado a la demostración (“*prove-it*”).
+Hansen [-@hansen2022prob], menciona que los estudiantes deberían estar familiarizados con cálculo integral, diferencial y multivariable, así como con álgebra lineal matricial. Este es el material típicamente enseñado en una secuencia de cuatro cursos de matemáticas de pregrado en una universidad estadounidense. No se asume experiencia previa en probabilidad, estadística o econometría, aunque sería útil. Es altamente recomendable, pero no necesario, haber estudiado análisis matemático y/o un curso de matemáticas orientado a la demostración (“*prove-it*”).
 
 El lenguaje de la probabilidad y la estadística es la matemática. Para comprender los conceptos es necesario derivar los métodos desde sus principios. Esto es diferente de los cursos introductorios de estadística, que desafortunadamente a menudo enfatizan la memorización. Al adoptar un enfoque matemático se requiere poca memorización. En cambio, se requiere habilidad para trabajar con derivaciones y demostraciones matemáticas detalladas.
 
@@ -46,7 +42,7 @@ $$
 x' = (\, x_1 \quad x_2 \quad \dots \quad x_m \, ).
 $$
 
-Existe diversidad entre campos con respecto a la elección de notación para la traspuesta. La notación $x'$ es la más común en econometría. En estadística y matemáticas, la notación $x^T$ es usual, o ocasionalmente $x^\prime$.
+Existe diversidad entre campos con respecto a la elección de notación para la traspuesta. La notación $x'$ es la más común en econometría. En estadística y matemáticas, la notación $x^T$ es usual, o ocasionalmente $x^{t}$.
 
 Las matrices se escriben usando letras mayúsculas en negrita cursiva. Por ejemplo,
 
@@ -83,7 +79,7 @@ Las variables aleatorias y los vectores se escriben usando letras mayúsculas en
 | $\operatorname{var}[Y \mid X]$ | varianza condicional |
 | $\operatorname{cov}(X,Y)$ | covarianza |
 | $\operatorname{corr}(X,Y)$ | correlación |
-| $\overline{X}_n$ | media muestral_
+| $\overline{X}_n$ | media muestral |
 
 
 

@@ -69,7 +69,7 @@ Para describir las representaciones y operaciones con eventos, usaremos las sigu
 
 Sean $A$ y $B$ eventos.
 
-1. $A$ es un **subconjunto** de $B$, escrito $A \subseteq B$, si cada elemento de $A$ es un elemento de $B$.
+1. $A$ es un **subconjunto** de $B$, escrito $A \subset B$, si cada elemento de $A$ es un elemento de $B$.
 
 2. El evento sin resultados $\varnothing = \{\}$ se llama **conjunto nulo** (*null*) o **conjunto vacío** (*empty set*).
 
@@ -98,7 +98,7 @@ $$
 A = \bigcup_{i=1}^{\infty} (A \cap B_i).
 $$
 
-Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^[Una demostración se proporciona en la Sección 2.15.].
+Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^[Una demostración se proporciona en la Sección 1.15.].
 
 
 
@@ -112,7 +112,7 @@ Los conjuntos $(A \cap B_i)$ son mutuamente disjuntos^[Una demostración se prop
 
 ## Función de probabilidad
 
-Una función $\mathbb{P}$ que asigna un valor numérico a los eventosse llama **función de probabilidad** si satisface los siguientes **Axiomas de la Probabilidad**:
+Una función $\mathbb{P}$ que asigna un valor numérico a los eventos^[Para eventos en una σ-álgebra (*sigma field*). Véase la Sección 1.14.] se llama **función de probabilidad** si satisface los siguientes **Axiomas de la Probabilidad**:
 
 1. $\mathbb{P}[A] \ge 0$.
 
@@ -124,7 +124,7 @@ Una función $\mathbb{P}$ que asigna un valor numérico a los eventosse llama **
    = \sum_{j=1}^{\infty} \mathbb{P}[A_j].
    $$
 
-Hansen, utiliza la notación $\mathbb{P}[A]$ o para indicar la probabilidad de un evento $A$. Otra notación común incluye $P(A)$ y $\Pr(A)$ y las usaremos también.
+Hansen, utiliza la notación $\mathbb{P}[A]$ para indicar la probabilidad de un evento $A$. Otra notación común incluye $P(A)$ y $\Pr(A)$ y las usaremos también.
 
 :::
 
@@ -167,7 +167,7 @@ Por otro lado, cualquier función $\mathbb{P}$ que satisfaga los axiomas es una 
 
 Con todo, aunque la definición establece que una función de probabilidad debe satisfacer ciertas reglas, no describe el **significado** de la probabilidad. La razón es que existen múltiples interpretaciones. Una visión es que las probabilidades son la frecuencia relativa de los resultados en un experimento controlado. La probabilidad de que el mercado bursátil aumente es la frecuencia de aumentos. La probabilidad de que la duración del desempleo exceda un mes es la frecuencia de duraciones de desempleo que exceden un mes. La probabilidad de que un jugador de baloncesto enceste un tiro libre es la frecuencia con la cual el jugador encesta tiros libres. La probabilidad de que ocurra una recesión es la frecuencia relativa de recesiones. Estos ejemplos son, justamente, interpretacionees frecuentistas (relativa en este caso) de la probabilidad.
 
-En algunos ejemplos esto es conceptualmente claro, ya que el experimento se repite o tiene múltiples ocurrencias. En otros casos una situación ocurre exactamente una vez y nunca se repetirá. Al escribir este párrafo, preguntas de incertidumbre de interés general incluyen “¿Saldrá el Reino Unido de la Unión Europea?” y “¿El calentamiento global excederá los 2 grados?”. En estos casos es difícil interpretar la probabilidad como una frecuencia relativa porque el resultado solo puede ocurrir una vez. La interpretación puede rescatarse considerando la “frecuencia relativa” de manera abstracta imaginando muchos universos alternativos que comienzan desde las mismas condiciones iniciales pero evolucionan aleatoriamente.
+En algunos ejemplos esto es conceptualmente claro, ya que el experimento se repite o tiene múltiples ocurrencias. En otros casos una situación ocurre exactamente una vez y nunca se repetirá. Al escribir este párrafo, preguntas de incertidumbre de interés general incluyen “¿El calentamiento global excederá los 2 grados?” y “¿Cuándo terminará la epidemia de COVID-19?”. En estos casos es difícil interpretar la probabilidad como una frecuencia relativa porque el resultado solo puede ocurrir una vez. La interpretación puede rescatarse considerando la “frecuencia relativa” de manera abstracta imaginando muchos universos alternativos que comienzan desde las mismas condiciones iniciales pero evolucionan aleatoriamente.
 
 Otra visión es que la probabilidad es subjetiva. Esta visión sostiene que las probabilidades pueden interpretarse como grados de creencia. Si digo “La probabilidad de que llueva mañana es 80%” quiero decir que esta es mi evaluación subjetiva de la *verosimilitud* basada en la información disponible para mí. Esto puede parecer demasiado amplio ya que permitiría creencias arbitrarias, pero la interpretación subjetiva requiere que la probabilidad subjetiva siga los axiomas y reglas de la probabilidad, y que se actualicen las creencias conforme se revela nueva información^[Es más, la interpretación subjetiva de la probabilidad está en los fundamentos de la teoría bayesiana de la probabilidad]. 
 

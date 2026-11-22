@@ -28,6 +28,26 @@
 \definecolor{darkGray}{RGB}{70,70,70}
 \definecolor{grayBlue}{RGB}{70,111,157}
 
+% ---------- Cajas para teoremas (como El capital) ----------
+% Envuelve los entornos que Quarto crea para ::: {#def-...}, {#thm-...}, etc.
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newcommand{\cajaTeorema}[2]{%
+  \ifcsname #1\endcsname
+    \tcolorboxenvironment{#1}{enhanced, breakable,
+      colback=#2!5, colframe=#2, boxrule=0.5pt, arc=2pt,
+      left=6pt, right=6pt, top=4pt, bottom=4pt,
+      before skip=10pt, after skip=10pt}%
+  \fi}
+\AtBeginDocument{%
+  \cajaTeorema{definition}{darkRed}%
+  \cajaTeorema{theorem}{darkBlue}%
+  \cajaTeorema{lemma}{darkBlue}%
+  \cajaTeorema{proposition}{darkBlue}%
+  \cajaTeorema{corollary}{darkBlue}%
+  \cajaTeorema{example}{darkGray}%
+  \cajaTeorema{exercise}{darkGray}}
+
 % ---------- Títulos ----------
 \titleformat{\chapter}[hang]
   {\normalfont\Huge\bfseries\scshape\color{darkRed}}
