@@ -207,8 +207,15 @@ pre.sourceCode, div.sourceCode pre {
 }
 
 // ---------- Matemáticas ----------
-.katex {
-  font-size: 1.08em;
+// Computer Modern (KaTeX) tiene un ojo mucho mayor que Crimson Pro:
+// se reduce para que las fórmulas en línea igualen la altura del texto.
+// (selector más específico porque katex.min.css se carga después y fija 1.21em)
+body .katex {
+  font-size: 0.94em;
+}
+
+body .katex-display > .katex {
+  font-size: 1em;
 }
 
 .katex-display {
